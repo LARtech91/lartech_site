@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="LARTECH AUTOMAÇÕES - Desenvolvemos soluções personalizadas de automação com IA, conectando sistemas, reduzindo custos e acelerando resultados para sua empresa.">
+    <meta name="description" content="LARTECH AUTOMAÇÕES - Desenvolvemos soluções personalizadas de automação com IA, conectando sistemas, reduzindo custos e acelerando resultados para empresas em São Paulo e todo Brasil.">
+    <meta name="keywords" content="automação, inteligência artificial, IA, assistente virtual, integração, API, CRM, automação de processos, fluxos inteligentes, São Paulo">
+    <meta name="robots" content="index,follow">
+    <meta name="author" content="LARTECH AUTOMAÇÕES">
     
     <!-- Preload de fontes críticas -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style">
@@ -61,17 +64,21 @@
     <header id="header">
         <div class="container header-container">
             <a href="#" class="logo-container">
-                <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//lartech_logo_transparente.png" alt="LARTECH AUTOMAÇÕES" class="logo" width="180" height="50">
+                <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//logo_web_lartech.png" alt="LARTECH AUTOMAÇÕES" class="logo logo-desktop" width="180" height="50">
+                <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//logo_mobile_lartech.png" alt="LARTECH AUTOMAÇÕES" class="logo logo-mobile" width="40" height="40">
             </a>
-            <nav>
-                <ul class="nav-menu" id="nav-menu">
-                    <li><a href="#inicio" class="nav-link">Início</a></li>
-                    <li><a href="#servicos" class="nav-link">Serviços</a></li>
-                    <li><a href="#processo" class="nav-link">Como Funciona</a></li>
-                    <li><a href="#ferramentas" class="nav-link">Ferramentas</a></li>
-                    <li><a href="#contato" class="nav-link">Contato</a></li>
+            
+            <!-- Atualizar a navegação com atributos ARIA e o botão CTA -->
+            <nav aria-label="Navegação principal">
+                <ul class="nav-menu" id="nav-menu" role="menubar">
+                    <li role="none"><a href="#inicio" class="nav-link" role="menuitem">Início</a></li>
+                    <li role="none"><a href="#servicos" class="nav-link" role="menuitem">Serviços</a></li>
+                    <li role="none"><a href="#processo" class="nav-link" role="menuitem">Como Funciona</a></li>
+                    <li role="none"><a href="#ferramentas" class="nav-link" role="menuitem">Ferramentas</a></li>
+                    <li role="none"><a href="#contato" class="nav-link" role="menuitem">Contato</a></li>
+                    <li role="none" class="nav-cta"><a href="https://wa.me/5511999027653" class="nav-btn-cta" role="menuitem">Fale Conosco</a></li>
                 </ul>
-                <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu de navegação">
+                <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu de navegação" aria-expanded="false" aria-controls="nav-menu">
                     <i class="fas fa-bars"></i>
                 </button>
             </nav>
@@ -129,66 +136,6 @@
             </div>
         </section>
 
-        <!-- Testimonials Section -->
-        <section class="section testimonials" id="depoimentos">
-            <div class="container">
-                <h2 class="section-title">O Que Nossos Clientes Dizem</h2>
-                <div class="testimonials-grid">
-                    <div class="testimonial-card">
-                        <div class="testimonial-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <p class="testimonial-text">"A LARTECH conseguiu reduzir em 70% o tempo que gastávamos com tarefas administrativas. Nosso ROI foi alcançado em apenas 3 meses."</p>
-                        <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Foto de Ricardo Mendes" class="testimonial-avatar" width="50" height="50" loading="lazy">
-                            <div>
-                                <h4>Ricardo Mendes</h4>
-                                <p>Diretor de Operações, TechSoft</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="testimonial-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <p class="testimonial-text">"O assistente virtual que implementamos com a LARTECH atende mais de 2.000 clientes por mês, com 92% de resolução sem intervenção humana."</p>
-                        <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Foto de Ana Lucia Silva" class="testimonial-avatar" width="50" height="50" loading="lazy">
-                            <div>
-                                <h4>Ana Lucia Silva</h4>
-                                <p>CEO, Distribuidora Express</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="testimonial-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <p class="testimonial-text">"A integração entre nossos sistemas legados e as novas plataformas parecia impossível até conhecermos a LARTECH. Entregaram antes do prazo e dentro do orçamento."</p>
-                        <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Foto de Carlos Eduardo" class="testimonial-avatar" width="50" height="50" loading="lazy">
-                            <div>
-                                <h4>Carlos Eduardo</h4>
-                                <p>CTO, Grupo Financeiro XYZ</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Process Section -->
         <section class="section" id="processo">
             <div class="container">
@@ -240,7 +187,7 @@
                             <span class="tool-name">Facebook</span>
                         </div>
                         <div class="tool-item">
-                            <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//github-mark.png" alt="Logo Google Calendar" class="tool-icon" width="70" height="70" loading="lazy">
+                            <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//google_calendar.png" alt="Logo Google Calendar" class="tool-icon" width="70" height="70" loading="lazy">
                             <span class="tool-name">Google Calendar</span>
                         </div>
                         <div class="tool-item">
@@ -313,31 +260,98 @@
                     <form id="contact-form" class="contact-form">
                         <div class="form-group">
                             <label for="name">Nome Completo</label>
-                            <input type="text" id="name" name="name" required placeholder="Seu nome">
+                            <input type="text" id="name" name="name" required placeholder="Seu nome" aria-describedby="name-error" autocomplete="name">
+                            <span id="name-error" class="error-message" aria-live="polite"></span>
                         </div>
                         <div class="form-group">
                             <label for="email">E-mail</label>
-                            <input type="email" id="email" name="email" required placeholder="seu@email.com">
+                            <input type="email" id="email" name="email" required placeholder="seu@email.com" aria-describedby="email-error" autocomplete="email">
+                            <span id="email-error" class="error-message" aria-live="polite"></span>
                         </div>
                         <div class="form-group">
                             <label for="phone">Telefone/WhatsApp</label>
-                            <input type="tel" id="phone" name="phone" required placeholder="(11) 99999-9999">
+                            <input type="tel" id="phone" name="phone" required placeholder="(11) 99999-9999" aria-describedby="phone-error" autocomplete="tel">
+                            <span id="phone-error" class="error-message" aria-live="polite"></span>
                         </div>
                         <div class="form-group">
                             <label for="company">Empresa</label>
-                            <input type="text" id="company" name="company" required placeholder="Nome da sua empresa">
+                            <input type="text" id="company" name="company" required placeholder="Nome da sua empresa" aria-describedby="company-error" autocomplete="organization">
+                            <span id="company-error" class="error-message" aria-live="polite"></span>
                         </div>
                         <div class="form-group full-width">
                             <label for="message">Como podemos ajudar sua empresa?</label>
-                            <textarea id="message" name="message" rows="4" required placeholder="Descreva brevemente sua necessidade..."></textarea>
+                            <textarea id="message" name="message" rows="4" required placeholder="Descreva brevemente sua necessidade..." aria-describedby="message-error"></textarea>
+                            <span id="message-error" class="error-message" aria-live="polite"></span>
                         </div>
                         <div class="form-group full-width">
                             <button type="submit" class="btn primary-btn form-submit-btn">
                                 <i class="fas fa-paper-plane"></i> Solicitar Contato
+                                <span class="btn-loader" aria-hidden="true"></span>
                             </button>
                             <p class="form-disclaimer">Diagnóstico inicial gratuito e sem compromisso!</p>
+                            <p class="form-success-message" aria-live="assertive"></p>
                         </div>
                     </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="section testimonials" id="depoimentos">
+            <div class="container">
+                <h2 class="section-title">O Que Nossos Clientes Dizem</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"A LARTECH conseguiu reduzir em 70% o tempo que gastávamos com tarefas administrativas. Nosso ROI foi alcançado em apenas 3 meses."</p>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Foto de Ricardo Mendes" class="testimonial-avatar" width="50" height="50" loading="lazy">
+                            <div>
+                                <h4>Ricardo Mendes</h4>
+                                <p>Diretor de Operações, TechSoft</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"O assistente virtual que implementamos com a LARTECH atende mais de 2.000 clientes por mês, com 92% de resolução sem intervenção humana."</p>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Foto de Ana Lucia Silva" class="testimonial-avatar" width="50" height="50" loading="lazy">
+                            <div>
+                                <h4>Ana Lucia Silva</h4>
+                                <p>CEO, Distribuidora Express</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p class="testimonial-text">"A integração entre nossos sistemas legados e as novas plataformas parecia impossível até conhecermos a LARTECH. Entregaram antes do prazo e dentro do orçamento."</p>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Foto de Carlos Eduardo" class="testimonial-avatar" width="50" height="50" loading="lazy">
+                            <div>
+                                <h4>Carlos Eduardo</h4>
+                                <p>CTO, Grupo Financeiro XYZ</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
