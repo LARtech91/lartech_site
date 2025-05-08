@@ -62,7 +62,7 @@ header {
 .logo-mobile {
     display: none;
     height: 50px;
-    width: auto;
+    width: 50px;
     transition: var(--transition);
 }
 
