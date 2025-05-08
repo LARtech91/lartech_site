@@ -52,6 +52,35 @@ header {
     width: auto;
     transition: var(--transition);
 }
+/* Adicionar após a classe .logo existente */
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-desktop {
+    display: block;
+    height: 50px;
+    width: auto;
+    transition: var(--transition);
+}
+
+.logo-mobile {
+    display: none;
+    height: 40px;
+    width: auto;
+    transition: var(--transition);
+}
+
+@media (max-width: 768px) {
+    .logo-desktop {
+        display: none;
+    }
+    
+    .logo-mobile {
+        display: block;
+    }
+}
 
 .nav-menu {
     display: flex;
@@ -83,6 +112,141 @@ header {
 
 .nav-link:hover::after {
     width: 100%;
+}
+/* Adicionar após as regras de navegação */
+.nav-cta {
+    margin-left: 15px;
+}
+
+.nav-btn-cta {
+    background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+    color: var(--text) !important;
+    padding: 8px 15px;
+    border-radius: var(--border-radius-lg);
+    font-weight: 600;
+    font-size: 14px;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(0, 191, 255, 0.3);
+    white-space: nowrap;
+}
+
+.nav-btn-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 191, 255, 0.5);
+}
+
+.nav-btn-cta:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 191, 255, 0.5);
+}
+
+@media (max-width: 992px) {
+    .nav-cta {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-btn-cta {
+        display: block;
+        text-align: center;
+        padding: 10px;
+        margin-top: 10px;
+    }
+}
+
+/* Adicionar após o bloco de variáveis ou outro local apropriado */
+a:focus, button:focus, input:focus, textarea:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+}
+
+.nav-link:focus::after {
+    width: 100%;
+}
+
+/* Melhorar contraste de texto */
+.service-desc, 
+.process-desc, 
+.testimonial-author p, 
+.form-disclaimer,
+.feature-text,
+.tool-name {
+    color: rgba(255, 255, 255, 0.85); /* Melhor contraste que var(--text-secondary) */
+}
+
+@media (max-width: 768px) {
+    /* Melhora do contraste em mobile */
+    .hero-subtitle,
+    .service-desc, 
+    .process-desc,
+    .testimonial-text {
+        color: rgba(255, 255, 255, 0.9);
+    }
+    
+    /* Aumenta fontes para melhor legibilidade em mobile */
+    .service-desc, 
+    .process-desc, 
+    .testimonial-text,
+    .feature-text {
+        font-size: 16px;
+    }
+}
+
+### 3.4. Estilos para Validação do Formulário e Feedback Visual
+
+```css
+/* Adicionar após os estilos de formulário existentes */
+.error-message {
+    color: #ff6b6b;
+    font-size: 12px;
+    margin-top: 5px;
+    display: none;
+}
+
+.error-message.show {
+    display: block;
+}
+
+.form-group input.error,
+.form-group textarea.error {
+    border-color: #ff6b6b;
+    background-color: rgba(255, 107, 107, 0.05);
+}
+
+.form-success-message {
+    color: #66de93;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 15px;
+    font-weight: 500;
+    display: none;
+}
+
+.form-success-message.show {
+    display: block;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.btn-loader {
+    display: none;
+    margin-left: 8px;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s linear infinite;
+}
+
+.btn-loader.show {
+    display: inline-block;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .mobile-menu-btn {
@@ -406,6 +570,48 @@ header {
 .tool-name {
     font-size: 14px;
     color: var(--text-secondary);
+}
+
+/* Adicionar após os estilos de ferramenta existentes */
+.tool-item {
+    position: relative;
+}
+
+.tool-tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    width: max-content;
+    max-width: 200px;
+    text-align: center;
+    z-index: 100;
+    pointer-events: none;
+}
+
+.tool-tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.8) transparent transparent transparent;
+}
+
+.tool-item:hover .tool-tooltip {
+    opacity: 1;
+    visibility: visible;
+    bottom: calc(100% + 10px);
 }
 
 /* Features Section */
