@@ -55,7 +55,7 @@ header {
 .logo-desktop {
     display: block;
     height: 80px;
-    width: auto;
+    width: 180px;
     transition: var(--transition);
 }
 
