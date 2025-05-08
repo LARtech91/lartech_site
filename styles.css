@@ -22,6 +22,215 @@
     --max-width: 1200px;
 }
 
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Compensate for fixed header */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--primary);
+    transform: translateY(-5px);
+    color: var(--text);
+}color: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: var(--text);
+    transition: var(--transition);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+button {
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+input, textarea {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+}
+
+/* Accessibility Improvements */
+a:focus, button:focus, input:focus, textarea:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+}
+
+.nav-link:focus::after {
+    width: 100%;
+}
+
+/* Utility Classes */
+.container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.section {
+    padding: var(--spacing-xl) 0;
+    position: relative;
+}
+
+.section-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    color: var(--text);
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+    border-radius: 2px;
+}
+
+.section-subtitle {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    color: var(--text-secondary);
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.btn {
+    display: inline-block;
+    background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+    color: var(--text);
+    padding: 14px 30px;
+    border-radius: var(--border-radius-lg);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 16px;
+    letter-spacing: 1px;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 191, 255, 0.3);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transition: var(--transition);
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 191, 255, 0.5);
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 191, 255, 0.5);
+}
+
+.btn i {
+    margin-right: 8px;
+}
+
+.primary-btn {
+    background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+    color: var(--text);
+}
+
+.secondary-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--primary);
+    color: var(--text);
+}
+
+.secondary-btn:hover {
+    background: rgba(0, 191, 255, 0.1);
+}
+
+.cta-btn {
+    background-color: var(--text);
+    color: var(--primary-dark);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cta-btn:hover {
+    background-color: var(--text);
+    color: var(--primary-dark);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.offer-tag {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--primary);
+    padding: 6px 12px;
+    border-radius: var(--border-radius-sm);
+    font-size: 14px;
+    margin-top: 15px;
+    border-left: 3px solid var(--primary);
+}
+
+.card-link {
+    display: inline-block;
+    color: var(--primary);
+    font-weight: 500;
+    margin-top: 15px;
+    position: relative;
+}
+
+.card-link::after {
+    content: '→';
+    margin-left: 5px;
+    transition: var(--transition);
+}
+
+.card-link:hover {
+    color: var(--primary-hover);
+}
+
+.card-link:hover::after {
+    margin-left: 10px;
+}
+
 /* Header Styles */
 header {
     position: fixed;
@@ -47,11 +256,6 @@ header {
     align-items: center;
 }
 
-.logo-container {
-    display: flex;
-    align-items: center;
-}
-
 .logo-desktop {
     display: block;
     height: 80px;
@@ -62,18 +266,8 @@ header {
 .logo-mobile {
     display: none;
     height: 50px;
-    width: 50px;
+    width: auto;
     transition: var(--transition);
-}
-
-@media (max-width: 768px) {
-    .logo-desktop {
-        display: none;
-    }
-    
-    .logo-mobile {
-        display: block;
-    }
 }
 
 .nav-menu {
@@ -107,7 +301,7 @@ header {
 .nav-link:hover::after {
     width: 100%;
 }
-/* Adicionar após as regras de navegação */
+
 .nav-cta {
     margin-left: 15px;
 }
@@ -134,115 +328,6 @@ header {
     box-shadow: 0 0 0 3px rgba(0, 191, 255, 0.5);
 }
 
-@media (max-width: 992px) {
-    .nav-cta {
-        margin-left: 0;
-    }
-}
-
-@media (max-width: 768px) {
-    .nav-btn-cta {
-        display: block;
-        text-align: center;
-        padding: 10px;
-        margin-top: 10px;
-    }
-}
-
-/* Adicionar após o bloco de variáveis ou outro local apropriado */
-a:focus, button:focus, input:focus, textarea:focus {
-    outline: 2px solid var(--primary);
-    outline-offset: 3px;
-}
-
-.nav-link:focus::after {
-    width: 100%;
-}
-
-/* Melhorar contraste de texto */
-.service-desc, 
-.process-desc, 
-.testimonial-author p, 
-.form-disclaimer,
-.feature-text,
-.tool-name {
-    color: rgba(255, 255, 255, 0.85); /* Melhor contraste que var(--text-secondary) */
-}
-
-@media (max-width: 768px) {
-    /* Melhora do contraste em mobile */
-    .hero-subtitle,
-    .service-desc, 
-    .process-desc,
-    .testimonial-text {
-        color: rgba(255, 255, 255, 0.9);
-    }
-    
-    /* Aumenta fontes para melhor legibilidade em mobile */
-    .service-desc, 
-    .process-desc, 
-    .testimonial-text,
-    .feature-text {
-        font-size: 16px;
-    }
-}
-
-### 3.4. Estilos para Validação do Formulário e Feedback Visual
-
-```css
-/* Adicionar após os estilos de formulário existentes */
-.error-message {
-    color: #ff6b6b;
-    font-size: 12px;
-    margin-top: 5px;
-    display: none;
-}
-
-.error-message.show {
-    display: block;
-}
-
-.form-group input.error,
-.form-group textarea.error {
-    border-color: #ff6b6b;
-    background-color: rgba(255, 107, 107, 0.05);
-}
-
-.form-success-message {
-    color: #66de93;
-    font-size: 16px;
-    text-align: center;
-    margin-top: 15px;
-    font-weight: 500;
-    display: none;
-}
-
-.form-success-message.show {
-    display: block;
-    animation: fadeInUp 0.5s ease-out;
-}
-
-.btn-loader {
-    display: none;
-    margin-left: 8px;
-    width: 16px;
-    height: 16px;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    border-top-color: #fff;
-    animation: spin 1s linear infinite;
-}
-
-.btn-loader.show {
-    display: inline-block;
-}
-
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
-}
-
 .mobile-menu-btn {
     display: none;
     font-size: 24px;
@@ -253,6 +338,15 @@ a:focus, button:focus, input:focus, textarea:focus {
 
 .mobile-menu-btn:hover {
     color: var(--primary);
+}
+
+/* Header scrolled state */
+header.scrolled .logo-desktop {
+    height: 60px;
+}
+
+header.scrolled .logo-mobile {
+    height: 40px;
 }
 
 /* Hero Section */
@@ -301,27 +395,47 @@ a:focus, button:focus, input:focus, textarea:focus {
     animation: float 6s ease-in-out infinite;
 }
 
-@keyframes float {
-    0% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-20px);
-    }
-    100% {
-        transform: translateY(0px);
-    }
+/* Problem-Solution Section (New) */
+.problem-solution {
+    background-color: rgba(26, 26, 26, 0.3);
+    padding: var(--spacing-lg) 0;
+    text-align: center;
 }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.message-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--box-shadow);
+    position: relative;
+}
+
+.message-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--primary), var(--primary-dark));
+}
+
+.impact-message, .solution-message {
+    font-size: 22px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.impact-message {
+    color: var(--text-secondary);
+}
+
+.solution-message {
+    color: var(--primary);
+    font-weight: 600;
 }
 
 /* Services Section */
@@ -386,77 +500,67 @@ a:focus, button:focus, input:focus, textarea:focus {
     margin-bottom: auto;
 }
 
-/* Testimonials Section */
-.testimonials {
-    background-color: rgba(26, 26, 26, 0.3);
-    padding: var(--spacing-xl) 0;
-}
-
-.testimonials-grid {
+/* Solutions Section (New) */
+.solutions-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 30px;
+    margin-top: var(--spacing-lg);
 }
 
-.testimonial-card {
+.solution-card {
     background-color: var(--card-bg);
     border-radius: var(--border-radius-md);
     padding: 30px;
+    text-align: center;
+    transition: var(--transition);
     box-shadow: var(--box-shadow);
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.solution-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--primary), var(--primary-dark));
     transition: var(--transition);
 }
 
-.testimonial-card:hover {
+.solution-card:hover {
     transform: translateY(-10px);
     box-shadow: var(--box-shadow-hover);
 }
 
-.testimonial-rating {
-    color: #FFD700;
-    margin-bottom: 15px;
-    font-size: 18px;
+.solution-card:hover::before {
+    width: 100%;
+    opacity: 0.1;
 }
 
-.testimonial-text {
-    color: var(--text);
-    font-size: 16px;
-    font-style: italic;
-    margin-bottom: 20px;
-    position: relative;
-}
-
-.testimonial-text::before {
-    content: '"';
-    font-size: 50px;
-    color: rgba(0, 191, 255, 0.1);
-    position: absolute;
-    top: -20px;
-    left: -15px;
-}
-
-.testimonial-author {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.testimonial-avatar {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.testimonial-author h4 {
+.solution-icon {
+    font-size: 48px;
     color: var(--primary);
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 2px;
+    margin-bottom: 20px;
 }
 
-.testimonial-author p {
+.solution-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--primary);
+}
+
+.solution-desc {
     color: var(--text-secondary);
-    font-size: 14px;
+    font-size: 16px;
+    margin-bottom: auto;
+    padding-bottom: 20px;
 }
 
 /* Process Section */
@@ -547,6 +651,7 @@ a:focus, button:focus, input:focus, textarea:focus {
     padding: 20px;
     transition: var(--transition);
     box-shadow: var(--box-shadow);
+    position: relative;
 }
 
 .tool-item:hover {
@@ -564,11 +669,6 @@ a:focus, button:focus, input:focus, textarea:focus {
 .tool-name {
     font-size: 14px;
     color: var(--text-secondary);
-}
-
-/* Adicionar após os estilos de ferramenta existentes */
-.tool-item {
-    position: relative;
 }
 
 .tool-tooltip {
@@ -608,6 +708,84 @@ a:focus, button:focus, input:focus, textarea:focus {
     bottom: calc(100% + 10px);
 }
 
+/* Case Studies Section (New) */
+.case-studies {
+    background-color: rgba(26, 26, 26, 0.3);
+}
+
+.case-studies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: var(--spacing-lg);
+}
+
+.case-study-card {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius-md);
+    padding: 30px;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.case-study-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--box-shadow-hover);
+}
+
+.case-study-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.case-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--primary);
+    margin: 0;
+    flex: 1;
+    text-align: left;
+}
+
+.case-metric {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+    padding: 10px 15px;
+    border-radius: var(--border-radius-sm);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 15px;
+}
+
+.case-number {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1;
+}
+
+.case-label {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.case-desc {
+    color: var(--text-secondary);
+    font-size: 16px;
+    margin-bottom: 25px;
+    flex: 1;
+}
+
+.case-btn {
+    align-self: center;
+    margin-top: auto;
+}
+
 /* Features Section */
 .features-container {
     display: grid;
@@ -640,6 +818,79 @@ a:focus, button:focus, input:focus, textarea:focus {
 .feature-text {
     font-size: 16px;
     font-weight: 500;
+}
+
+/* Testimonials Section */
+.testimonials {
+    background-color: rgba(26, 26, 26, 0.3);
+    padding: var(--spacing-xl) 0;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.testimonial-card {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius-md);
+    padding: 30px;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--box-shadow-hover);
+}
+
+.testimonial-rating {
+    color: #FFD700;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.testimonial-text {
+    color: var(--text);
+    font-size: 16px;
+    font-style: italic;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.testimonial-text::before {
+    content: '"';
+    font-size: 50px;
+    color: rgba(0, 191, 255, 0.1);
+    position: absolute;
+    top: -20px;
+    left: -15px;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.testimonial-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.testimonial-author h4 {
+    color: var(--primary);
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.testimonial-author p {
+    color: var(--text-secondary);
+    font-size: 14px;
 }
 
 /* Contact Form Section */
@@ -709,6 +960,52 @@ a:focus, button:focus, input:focus, textarea:focus {
     color: var(--text-secondary);
     font-size: 14px;
     margin-top: 10px;
+}
+
+.error-message {
+    color: #ff6b6b;
+    font-size: 12px;
+    margin-top: 5px;
+    display: none;
+}
+
+.error-message.show {
+    display: block;
+}
+
+.form-group input.error,
+.form-group textarea.error {
+    border-color: #ff6b6b;
+    background-color: rgba(255, 107, 107, 0.05);
+}
+
+.form-success-message {
+    color: #66de93;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 15px;
+    font-weight: 500;
+    display: none;
+}
+
+.form-success-message.show {
+    display: block;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.btn-loader {
+    display: none;
+    margin-left: 8px;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s linear infinite;
+}
+
+.btn-loader.show {
+    display: inline-block;
 }
 
 /* CTA Section */
@@ -810,7 +1107,7 @@ footer {
 }
 
 .social-links a:hover {
-    background-color: var(--primary);
+    background- var(--primary);
     transform: translateY(-5px);
     color: var(--text);
 }
