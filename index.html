@@ -8,6 +8,17 @@
     <meta name="robots" content="index,follow">
     <meta name="author" content="LARTECH AUTOMAÇÕES">
     
+    <!-- Meta tags adicionais para SEO -->
+    <meta name="google-site-verification" content="verification-code"> <!-- Substitua com o código real -->
+    <meta name="theme-color" content="#0B0C10">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="canonical" href="https://lartech.com.br/">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//favicon.png">
+    <link rel="apple-touch-icon" href="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//apple-touch-icon.png">
+    
     <!-- Preload de fontes críticas -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
@@ -64,14 +75,14 @@
     <header id="header">
         <div class="container header-container">
             <a href="#" class="logo-container">
-                <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//logo_definitivo.png" alt="LARTECH AUTOMAÇÕES" class="logo logo-desktop" width="180" height="50">
-                <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//logo_mobile_lartech.png" alt="LARTECH AUTOMAÇÕES" class="logo logo-mobile" width="40" height="40">
+                <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//logo_definitivo.png" alt="LARTECH AUTOMAÇÕES" class="logo logo-desktop" width="180" height="50" fetchpriority="high">
+                <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//logo_mobile_lartech.png" alt="LARTECH AUTOMAÇÕES" class="logo logo-mobile" width="40" height="40" fetchpriority="high">
             </a>
             
-            <!-- Atualizar a navegação com atributos ARIA e o botão CTA -->
+            <!-- Navegação com atributos ARIA -->
             <nav aria-label="Navegação principal">
-                <ul class="nav-menu" id="nav-menu" role="menubar">
-                    <li role="none"><a href="#inicio" class="nav-link" role="menuitem">Início</a></li>
+                <ul class="nav-menu" id="nav-menu" role="menubar" aria-orientation="horizontal">
+                    <li role="none"><a href="#inicio" class="nav-link" role="menuitem" aria-current="page">Início</a></li>
                     <li role="none"><a href="#solucoes" class="nav-link" role="menuitem">Soluções</a></li>
                     <li role="none"><a href="#processo" class="nav-link" role="menuitem">Como Funciona</a></li>
                     <li role="none"><a href="#casos" class="nav-link" role="menuitem">Casos Reais</a></li>
@@ -80,7 +91,7 @@
                     <li role="none" class="nav-cta"><a href="https://wa.me/5511999027653" class="nav-btn-cta" role="menuitem">Fale Conosco</a></li>
                 </ul>
                 <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu de navegação" aria-expanded="false" aria-controls="nav-menu">
-                    <i class="fas fa-bars"></i>
+                    <i class="fas fa-bars" aria-hidden="true"></i>
                 </button>
             </nav>
         </div>
@@ -94,9 +105,9 @@
                     <h1 class="hero-title">Automatize Processos, Reduza Custos e Aumente a Produtividade da sua Empresa</h1>
                     <p class="hero-subtitle">Desenvolvemos soluções personalizadas de automação com IA para empresas de pequeno e médio porte, integrando seus sistemas e eliminando tarefas manuais.</p>
                     <a href="https://wa.me/5511999027653" class="btn primary-btn" aria-label="Iniciar conversa no WhatsApp">
-                        <i class="fab fa-whatsapp"></i> Solicitar Diagnóstico Gratuito
+                        <i class="fab fa-whatsapp" aria-hidden="true"></i> Solicitar Diagnóstico Gratuito
                     </a>
-                    <p class="offer-tag">Fale com nossa assistente de vendas IA, e entenda o nível de automação que queremos para a sua empresa.  </p>
+                    <p class="offer-tag">Fale com nossa assistente de vendas IA, e entenda o nível de automação que queremos para a sua empresa.</p>
                 </div>
                 <div class="hero-image">
                     <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//site3.png" alt="Ilustração de Inteligência Artificial" width="500" height="500" loading="eager">
@@ -129,7 +140,7 @@
                 <div class="solutions-grid">
                     <div class="solution-card">
                         <div class="solution-icon">
-                            <i class="fas fa-comments"></i>
+                            <i class="fas fa-comments" aria-hidden="true"></i>
                         </div>
                         <h3 class="solution-title">Automação de atendimento ao cliente</h3>
                         <p class="solution-desc">Responda automaticamente no WhatsApp, envie formulários, realize pré-atendimentos e encaminhamentos com assistentes IA.</p>
@@ -138,7 +149,7 @@
                     
                     <div class="solution-card">
                         <div class="solution-icon">
-                            <i class="fas fa-file-contract"></i>
+                            <i class="fas fa-file-contract" aria-hidden="true"></i>
                         </div>
                         <h3 class="solution-title">Geração automática de contratos</h3>
                         <p class="solution-desc">A partir de formulários ou dados do cliente, gere PDFs personalizados, envie para assinatura e armazene tudo automaticamente.</p>
@@ -147,7 +158,7 @@
                     
                     <div class="solution-card">
                         <div class="solution-icon">
-                            <i class="fas fa-heart"></i>
+                            <i class="fas fa-heart" aria-hidden="true"></i>
                         </div>
                         <h3 class="solution-title">Pós-venda automatizado</h3>
                         <p class="solution-desc">Envie mensagens de agradecimento, formulários de feedback, lembretes de renovação ou ofertas personalizadas no tempo certo.</p>
@@ -156,7 +167,7 @@
                     
                     <div class="solution-card">
                         <div class="solution-icon">
-                            <i class="fas fa-calendar-check"></i>
+                            <i class="fas fa-calendar-check" aria-hidden="true"></i>
                         </div>
                         <h3 class="solution-title">Gestão de agendas e compromissos</h3>
                         <p class="solution-desc">Integração com Google Calendar, confirmação automática de consultas e controle inteligente de disponibilidade.</p>
@@ -165,7 +176,7 @@
                     
                     <div class="solution-card">
                         <div class="solution-icon">
-                            <i class="fas fa-chart-line"></i>
+                            <i class="fas fa-chart-line" aria-hidden="true"></i>
                         </div>
                         <h3 class="solution-title">Centralização de dados com dashboards</h3>
                         <p class="solution-desc">Tenha controle total dos seus atendimentos, leads, vendas e históricos em painéis personalizados, em tempo real.</p>
@@ -265,6 +276,42 @@
                             <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//zapier.png" alt="Logo Zapier" class="tool-icon" width="70" height="70" loading="lazy">
                             <span class="tool-name">Zapier</span>
                         </div>
+                        <div class="tool-item">
+                            <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//whatsapp.png" alt="Logo WhatsApp" class="tool-icon" width="70" height="70" loading="lazy">
+                            <span class="tool-name">WhatsApp</span>
+                        </div>
+                        <div class="tool-item">
+                            <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//instagram.png" alt="Logo Instagram" class="tool-icon" width="70" height="70" loading="lazy">
+                            <span class="tool-name">Instagram</span>
+                        </div>
+                        <div class="tool-item">
+                            <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//facebook.png" alt="Logo Facebook" class="tool-icon" width="70" height="70" loading="lazy">
+                            <span class="tool-name">Facebook</span>
+                        </div>
+                        <div class="tool-item">
+                            <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//google_calendar.png" alt="Logo Google Calendar" class="tool-icon" width="70" height="70" loading="lazy">
+                            <span class="tool-name">Google Calendar</span>
+                        </div>
+                        <div class="tool-item">
+                            <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//supabase-logo-icon.png" alt="Logo Supabase" class="tool-icon" width="70" height="70" loading="lazy">
+                            <span class="tool-name">Supabase</span>
+                        </div>
+                        <div class="tool-item">
+                            <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//notion-logo.png" alt="Logo Notion" class="tool-icon" width="70" height="70" loading="lazy">
+                            <span class="tool-name">Notion</span>
+                        </div>
+                        <div class="tool-item">
+                            <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//n8n.png" alt="Logo n8n" class="tool-icon" width="70" height="70" loading="lazy">
+                            <span class="tool-name">n8n</span>
+                        </div>
+                        <div class="tool-item">
+                            <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//github-mark.png" alt="Logo GitHub" class="tool-icon" width="70" height="70" loading="lazy">
+                            <span class="tool-name">GitHub</span>
+                        </div>
+                        <div class="tool-item">
+                            <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//open_ia.png" alt="Logo OpenAI" class="tool-icon" width="70" height="70" loading="lazy">
+                            <span class="tool-name">OpenAI (GPT)</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -280,27 +327,27 @@
                 </p>
                 <div class="features-container">
                     <div class="feature-item">
-                        <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                        <div class="feature-icon"><i class="fas fa-check-circle" aria-hidden="true"></i></div>
                         <div class="feature-text">Soluções 100% Personalizadas</div>
                     </div>
                     <div class="feature-item">
-                        <div class="feature-icon"><i class="fas fa-handshake"></i></div>
+                        <div class="feature-icon"><i class="fas fa-handshake" aria-hidden="true"></i></div>
                         <div class="feature-text">Suporte próximo e contínuo</div>
                     </div>
                     <div class="feature-item">
-                        <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+                        <div class="feature-icon"><i class="fas fa-bolt" aria-hidden="true"></i></div>
                         <div class="feature-text">Entregas ágeis e eficazes</div>
                     </div>
                     <div class="feature-item">
-                        <div class="feature-icon"><i class="fas fa-lock"></i></div>
+                        <div class="feature-icon"><i class="fas fa-lock" aria-hidden="true"></i></div>
                         <div class="feature-text">Segurança e estabilidade</div>
                     </div>
                     <div class="feature-item">
-                        <div class="feature-icon"><i class="fas fa-brain"></i></div>
+                        <div class="feature-icon"><i class="fas fa-brain" aria-hidden="true"></i></div>
                         <div class="feature-text">Integrações com IA para decisões inteligentes</div>
                     </div>
                     <div class="feature-item">
-                        <div class="feature-icon"><i class="fas fa-money-bill-wave"></i></div>
+                        <div class="feature-icon"><i class="fas fa-money-bill-wave" aria-hidden="true"></i></div>
                         <div class="feature-text">Preços acessíveis para pequenas empresas</div>
                     </div>
                 </div>
@@ -314,11 +361,12 @@
                 <div class="testimonials-grid">
                     <div class="testimonial-card">
                         <div class="testimonial-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <span class="sr-only">5 estrelas de 5</span>
                         </div>
                         <p class="testimonial-text">"A LARTECH conseguiu reduzir em 70% o tempo que gastávamos com tarefas administrativas. Nosso ROI foi alcançado em apenas 3 meses."</p>
                         <div class="testimonial-author">
@@ -331,11 +379,12 @@
                     </div>
                     <div class="testimonial-card">
                         <div class="testimonial-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <span class="sr-only">5 estrelas de 5</span>
                         </div>
                         <p class="testimonial-text">"O assistente virtual que implementamos com a LARTECH atende mais de 2.000 clientes por mês, com 92% de resolução sem intervenção humana."</p>
                         <div class="testimonial-author">
@@ -348,11 +397,12 @@
                     </div>
                     <div class="testimonial-card">
                         <div class="testimonial-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star-half-alt" aria-hidden="true"></i>
+                            <span class="sr-only">4.5 estrelas de 5</span>
                         </div>
                         <p class="testimonial-text">"A integração entre nossos sistemas legados e as novas plataformas parecia impossível até conhecermos a LARTECH. Entregaram antes do prazo e dentro do orçamento."</p>
                         <div class="testimonial-author">
@@ -401,333 +451,89 @@
                                 <option value="contratos">Geração de contratos</option>
                                 <option value="pos-venda">Pós-venda automatizado</option>
                                 <option value="agendas">Gestão de agendas</option>
-                                <option value="dashboards">Dashboards e relatórios</option>
-                                <option value="outro">Outro</option>
-                            </select>
-                            <span id="interest-error" class="error-message" aria-live="polite"></span>
-                        </div>
-                        <div class="form-group full-width">
-                            <label for="message">Como podemos ajudar sua empresa?</label>
-                            <textarea id="message" name="message" rows="4" required placeholder="Descreva brevemente sua necessidade..." aria-describedby="message-error"></textarea>
+                                <option value="dashboards">Dashboards e relatórios</option> 
+                                <option value="outro">Outro</option> 
+                            </select> 
+                            <span id="interest-error" class="error-message" aria-live="polite"> </span> 
+                       </div> 
+                        <div class="form-group full-width"> 
+                            <label for="message">Como podemos ajudar sua empresa?</label> 
+                            <textarea id="message" name="message" rows="4" required placeholder="Descreva brevemente sua necessidade..." aria-describedby="message-error"></textarea> 
                             <span id="message-error" class="error-message" aria-live="polite"></span>
                         </div>
-                        <div class="form-group full-width">
-                            <button type="submit" class="btn primary-btn form-submit-btn">
-                                <i class="fas fa-paper-plane"></i> Solicitar Contato
+                        <div class="form-group full-width"> 
+                            <button type="submit" class="btn primary-btn form-submit-btn"> 
+                                <i class="fas fa-paper-plane" aria-hidden="true"></i> Solicitar Contato 
                                 <span class="btn-loader" aria-hidden="true"></span>
                             </button>
-                            <p class="form-disclaimer">Diagnóstico inicial gratuito e sem compromisso!</p>
-                            <p class="form-success-message" aria-live="assertive"></p>
-                        </div>
-                    </form>
+                            <p class="form-disclaimer">Diagnóstico inicial gratuito e sem compromisso!</p> 
+                            <p class="form-success-message" aria-live="assertive"></p> 
+                            </div> 
+                    </form> 
                 </div>
-            </div>
+            </div> 
         </section>
 
-        <!-- CTA Section -->
-        <section class="cta" id="contato">
-            <div class="container">
-                <h2 class="cta-title">Vamos automatizar seu negócio juntos?</h2>
-                <p class="cta-subtitle">Agende seu diagnóstico gratuito hoje mesmo e descubra como podemos transformar sua operação</p>
-                <a href="https://wa.me/5511999027653" class="btn cta-btn" aria-label="Solicitar diagnóstico no WhatsApp">
-                    <i class="fab fa-whatsapp"></i> Solicitar Diagnóstico Gratuito
-                </a>
-                <p class="cta-note">Resposta em até 2 horas em horário comercial</p>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer>
+<!-- CTA Section -->
+    <section class="cta" id="contato">
         <div class="container">
-            <div class="footer-container">
-                <div class="footer-info">
-                    <h3>LARTECH AUTOMAÇÕES</h3>
-                    <p>CNPJ: 12.345.678/0001-90</p>
-                    <p>Email: contato@lartech.com.br</p>
-                    <p>São Paulo, SP - Brasil</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-                <div class="footer-links">
-                    <h3>Links Úteis</h3>
-                    <ul>
-                        <li><a href="#inicio">Início</a></li>
-                        <li><a href="#solucoes">Soluções</a></li>
-                        <li><a href="#processo">Como Funciona</a></li>
-                        <li><a href="#casos">Casos Reais</a></li>
-                        <li><a href="#ferramentas">Ferramentas</a></li>
-                        <li><a href="#contato">Contato</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h3>Legal</h3>
-                    <ul>
-                        <li><a href="javascript:void(0)" id="termos-link">Termos de Uso</a></li>
-                        <li><a href="javascript:void(0)" id="privacidade-link">Política de Privacidade</a></li>
-                        <li><a href="javascript:void(0)" id="cookies-link">Cookies</a></li>
-                    </ul>
+            <h2 class="cta-title">Vamos automatizar seu negócio juntos?</h2>
+            <p class="cta-subtitle">Agende seu diagnóstico gratuito hoje mesmo e descubra como podemos transformar sua operação</p>
+            <a href="https://wa.me/5511999027653" class="btn cta-btn" aria-label="Solicitar diagnóstico no WhatsApp">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Solicitar Diagnóstico Gratuito
+            </a>
+            <p class="cta-note">Resposta em até 2 horas em horário comercial</p>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="footer-container">
+            <div class="footer-info">
+                <h3>LARTECH AUTOMAÇÕES</h3>
+                <p>CNPJ: 12.345.678/0001-90</p>
+                <p>Email: contato@lartech.com.br</p>
+                <p>São Paulo, SP - Brasil</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>© 2025 LARTECH AUTOMAÇÕES. Todos os direitos reservados.</p>
+            <div class="footer-links">
+                <h3>Links Úteis</h3>
+                <ul>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#solucoes">Soluções</a></li>
+                    <li><a href="#processo">Como Funciona</a></li>
+                    <li><a href="#casos">Casos Reais</a></li>
+                    <li><a href="#ferramentas">Ferramentas</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="javascript:void(0)" id="termos-link">Termos de Uso</a></li>
+                    <li><a href="javascript:void(0)" id="privacidade-link">Política de Privacidade</a></li>
+                    <li><a href="javascript:void(0)" id="cookies-link">Cookies</a></li>
+                </ul>
             </div>
         </div>
-    </footer>
-
-    <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/5511999027653" class="whatsapp-float" target="_blank" aria-label="Contato via WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <!-- JavaScript -->
-    <script src="main.js" defer></script>
-</body>
-</html>pabase.co/storage/v1/object/public/site//whatsapp.png" alt="Logo WhatsApp" class="tool-icon" width="70" height="70" loading="lazy">
-                            <span class="tool-name">WhatsApp</span>
-                        </div>
-                        <div class="tool-item">
-                            <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//instagram.png" alt="Logo Instagram" class="tool-icon" width="70" height="70" loading="lazy">
-                            <span class="tool-name">Instagram</span>
-                        </div>
-                        <div class="tool-item">
-                            <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//facebook.png" alt="Logo Facebook" class="tool-icon" width="70" height="70" loading="lazy">
-                            <span class="tool-name">Facebook</span>
-                        </div>
-                        <div class="tool-item">
-                            <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//google_calendar.png" alt="Logo Google Calendar" class="tool-icon" width="70" height="70" loading="lazy">
-                            <span class="tool-name">Google Calendar</span>
-                        </div>
-                        <div class="tool-item">
-                            <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//supabase-logo-icon.png" alt="Logo Supabase" class="tool-icon" width="70" height="70" loading="lazy">
-                            <span class="tool-name">Supabase</span>
-                        </div>
-                        <div class="tool-item">
-                            <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//notion-logo.png" alt="Logo Notion" class="tool-icon" width="70" height="70" loading="lazy">
-                            <span class="tool-name">Notion</span>
-                        </div>
-                        <div class="tool-item">
-                            <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//n8n.png" alt="Logo n8n" class="tool-icon" width="70" height="70" loading="lazy">
-                            <span class="tool-name">n8n</span>
-                        </div>
-                        <div class="tool-item">
-                            <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//github-mark.png" alt="Logo GitHub" class="tool-icon" width="70" height="70" loading="lazy">
-                            <span class="tool-name">GitHub</span>
-                        </div>
-                        <div class="tool-item">
-                            <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//open_ia.png" alt="Logo OpenAI" class="tool-icon" width="70" height="70" loading="lazy">
-                            <span class="tool-name">OpenAI (GPT)</span>
-                        </div>
-                        <div class="tool-item">
-                            <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//slack.png" alt="Logo Slack" class="tool-icon" width="70" height="70" loading="lazy">
-                            <span class="tool-name">Slack</span>
-                        </div>
-                        <div class="tool-item">
-                            <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//zapier.png" alt="Logo Zapier" class="tool-icon" width="70" height="70" loading="lazy">
-                            <span class="tool-name">Zapier</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Features Section -->
-        <section class="section" id="why-lartech">
-            <div class="container">
-                <h2 class="section-title">Por que escolher a LARTECH?</h2>
-                <div class="features-container">
-                    <div class="feature-item">
-                        <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
-                        <div class="feature-text">Soluções 100% Personalizadas</div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon"><i class="fas fa-handshake"></i></div>
-                        <div class="feature-text">Suporte próximo e contínuo</div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon"><i class="fas fa-bolt"></i></div>
-                        <div class="feature-text">Entregas ágeis e eficazes</div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon"><i class="fas fa-lock"></i></div>
-                        <div class="feature-text">Segurança e estabilidade</div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon"><i class="fas fa-brain"></i></div>
-                        <div class="feature-text">Integrações com IA para decisões inteligentes</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Form Section -->
-        <section class="section contact-form-section" id="formulario">
-            <div class="container">
-                <h2 class="section-title">Entre em Contato</h2>
-                <div class="contact-form-container">
-                    <form id="contact-form" class="contact-form">
-                        <div class="form-group">
-                            <label for="name">Nome Completo</label>
-                            <input type="text" id="name" name="name" required placeholder="Seu nome" aria-describedby="name-error" autocomplete="name">
-                            <span id="name-error" class="error-message" aria-live="polite"></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">E-mail</label>
-                            <input type="email" id="email" name="email" required placeholder="seu@email.com" aria-describedby="email-error" autocomplete="email">
-                            <span id="email-error" class="error-message" aria-live="polite"></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Telefone/WhatsApp</label>
-                            <input type="tel" id="phone" name="phone" required placeholder="(11) 99999-9999" aria-describedby="phone-error" autocomplete="tel">
-                            <span id="phone-error" class="error-message" aria-live="polite"></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="company">Empresa</label>
-                            <input type="text" id="company" name="company" required placeholder="Nome da sua empresa" aria-describedby="company-error" autocomplete="organization">
-                            <span id="company-error" class="error-message" aria-live="polite"></span>
-                        </div>
-                        <div class="form-group full-width">
-                            <label for="message">Como podemos ajudar sua empresa?</label>
-                            <textarea id="message" name="message" rows="4" required placeholder="Descreva brevemente sua necessidade..." aria-describedby="message-error"></textarea>
-                            <span id="message-error" class="error-message" aria-live="polite"></span>
-                        </div>
-                        <div class="form-group full-width">
-                            <button type="submit" class="btn primary-btn form-submit-btn">
-                                <i class="fas fa-paper-plane"></i> Solicitar Contato
-                                <span class="btn-loader" aria-hidden="true"></span>
-                            </button>
-                            <p class="form-disclaimer">Diagnóstico inicial gratuito e sem compromisso!</p>
-                            <p class="form-success-message" aria-live="assertive"></p>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-        <!-- Testimonials Section -->
-        <section class="section testimonials" id="depoimentos">
-            <div class="container">
-                <h2 class="section-title">O Que Nossos Clientes Dizem</h2>
-                <div class="testimonials-grid">
-                    <div class="testimonial-card">
-                        <div class="testimonial-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <p class="testimonial-text">"A LARTECH conseguiu reduzir em 70% o tempo que gastávamos com tarefas administrativas. Nosso ROI foi alcançado em apenas 3 meses."</p>
-                        <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Foto de Ricardo Mendes" class="testimonial-avatar" width="50" height="50" loading="lazy">
-                            <div>
-                                <h4>Ricardo Mendes</h4>
-                                <p>Diretor de Operações, TechSoft</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="testimonial-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <p class="testimonial-text">"O assistente virtual que implementamos com a LARTECH atende mais de 2.000 clientes por mês, com 92% de resolução sem intervenção humana."</p>
-                        <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Foto de Ana Lucia Silva" class="testimonial-avatar" width="50" height="50" loading="lazy">
-                            <div>
-                                <h4>Ana Lucia Silva</h4>
-                                <p>CEO, Distribuidora Express</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="testimonial-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <p class="testimonial-text">"A integração entre nossos sistemas legados e as novas plataformas parecia impossível até conhecermos a LARTECH. Entregaram antes do prazo e dentro do orçamento."</p>
-                        <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Foto de Carlos Eduardo" class="testimonial-avatar" width="50" height="50" loading="lazy">
-                            <div>
-                                <h4>Carlos Eduardo</h4>
-                                <p>CTO, Grupo Financeiro XYZ</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA Section -->
-        <section class="cta" id="contato">
-            <div class="container">
-                <h2 class="cta-title">Vamos automatizar seu negócio juntos?</h2>
-                <p class="cta-subtitle">Agende seu diagnóstico gratuito hoje mesmo e descubra como podemos transformar sua operação</p>
-                <a href="https://wa.me/5511999027653" class="btn cta-btn" aria-label="Solicitar diagnóstico no WhatsApp">
-                    <i class="fab fa-whatsapp"></i> Solicitar Diagnóstico Gratuito
-                </a>
-                <p class="cta-note">Resposta em até 2 horas em horário comercial</p>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-container">
-                <div class="footer-info">
-                    <h3>LARTECH AUTOMAÇÕES</h3>
-                    <p>CNPJ: 12.345.678/0001-90</p>
-                    <p>Email: contato@lartech.com.br</p>
-                    <p>São Paulo, SP - Brasil</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-                <div class="footer-links">
-                    <h3>Links Úteis</h3>
-                    <ul>
-                        <li><a href="#inicio">Início</a></li>
-                        <li><a href="#servicos">Serviços</a></li>
-                        <li><a href="#processo">Como Funciona</a></li>
-                        <li><a href="#ferramentas">Ferramentas</a></li>
-                        <li><a href="#contato">Contato</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h3>Legal</h3>
-                    <ul>
-                        <li><a href="javascript:void(0)" id="termos-link">Termos de Uso</a></li>
-                        <li><a href="javascript:void(0)" id="privacidade-link">Política de Privacidade</a></li>
-                        <li><a href="javascript:void(0)" id="cookies-link">Cookies</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>© 2025 LARTECH AUTOMAÇÕES. Todos os direitos reservados.</p>
-            </div>
+        <div class="footer-bottom">
+            <p>© 2025 LARTECH AUTOMAÇÕES. Todos os direitos reservados.</p>
         </div>
-    </footer>
+    </div>
+</footer>
 
-    <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/5511999027653" class="whatsapp-float" target="_blank" aria-label="Contato via WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+<!-- WhatsApp Float Button -->
+<a href="https://wa.me/5511999027653" class="whatsapp-float" target="_blank" aria-label="Contato via WhatsApp" rel="noopener" role="button" tabindex="0">
+    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    <span class="sr-only">Enviar mensagem no WhatsApp</span>
+</a>
 
-    <!-- JavaScript -->
-    <script src="main.js" defer></script>
-</body>
-</html>
+<!-- JavaScript -->
+<script src="main.js" defer></script>
