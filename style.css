@@ -93,10 +93,19 @@ html {
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: url('https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//fundo_do_site.png') no-repeat center center fixed;
-    background-size: cover;
+    background: url('https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//fundo_do_site.png') no-repeat center top;
+    background-size: 100% auto;
+    background-attachment: fixed;
+    background-color: var(--bg-dark);
     color: var(--text-light);
     line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    body {
+        background-size: 300% auto;
+        background-position: center top;
+    }
 }
 
 header {
