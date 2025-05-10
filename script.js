@@ -1,4 +1,3 @@
-
 // Usar IntersectionObserver com debounce para melhor performance
 document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.querySelector('.menu-toggle');
@@ -35,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!start) start = currentTime;
             const progress = currentTime - start;
             const easeInOutQuad = (t) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
-            
+
             window.scrollTo(0, startPosition + distance * easeInOutQuad(Math.min(progress / duration, 1)));
 
             if (progress < duration) {
@@ -93,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.openModal = function(type) {
         if (!modal || !termsContent || !privacyContent) return;
-        
+
         modal.style.display = 'block';
         requestAnimationFrame(() => {
             if (type === 'terms') {
@@ -115,4 +114,84 @@ document.addEventListener('DOMContentLoaded', () => {
             closeModal();
         }
     };
+
+    // Tools Carousel Implementation
+    const carousel = document.querySelector('.tools-carousel');
+    const track = document.querySelector('.carousel-track');
+    const prevButton = document.querySelector('.prev-button');
+    const nextButton = document.querySelector('.next-button');
+    let autoplayInterval;
+    let isDragging = false;
+    let startX;
+    let scrollLeft;
+
+    const startAutoplay = () => {
+        stopAutoplay();
+        autoplayInterval = setInterval(() => {
+            const scrollAmount = track.offsetWidth * 0.2;
+            if (track.scrollLeft >= (track.scrollWidth - track.offsetWidth - 10)) {
+                track.scrollLeft = 0;
+            } else {
+                track.scrollTo({
+                    left: track.scrollLeft + scrollAmount,
+                    behavior: 'smooth'
+                });
+            }
+        }, 3000);
+    };
+
+    const stopAutoplay = () => {
+        if (autoplayInterval) {
+            clearInterval(autoplayInterval);
+            autoplayInterval = null;
+        }
+    };
+
+    const handleDragStart = (e) => {
+        isDragging = true;
+        startX = e.type === 'mousedown' ? e.pageX : e.touches[0].pageX;
+        scrollLeft = track.scrollLeft;
+        stopAutoplay();
+    };
+
+    const handleDragEnd = () => {
+        isDragging = false;
+        startAutoplay();
+    };
+
+    const handleDragMove = (e) => {
+        if (!isDragging) return;
+        e.preventDefault();
+        const x = e.type === 'mousemove' ? e.pageX : e.touches[0].pageX;
+        const dist = (startX - x);
+        track.scrollLeft = scrollLeft + dist;
+    };
+
+    // Event Listeners
+    track.addEventListener('mousedown', handleDragStart);
+    track.addEventListener('touchstart', handleDragStart);
+
+    document.addEventListener('mousemove', handleDragMove);
+    document.addEventListener('touchmove', handleDragMove, { passive: false });
+
+    document.addEventListener('mouseup', handleDragEnd);
+    document.addEventListener('touchend', handleDragEnd);
+
+    track.addEventListener('mouseover', stopAutoplay);
+    track.addEventListener('mouseout', startAutoplay);
+
+    prevButton.addEventListener('click', () => {
+        track.scrollLeft -= track.offsetWidth * 0.3;
+        stopAutoplay();
+        setTimeout(startAutoplay, 2000);
+    });
+
+    nextButton.addEventListener('click', () => {
+        track.scrollLeft += track.offsetWidth * 0.3;
+        stopAutoplay();
+        setTimeout(startAutoplay, 2000);
+    });
+
+    // Start autoplay on load
+    startAutoplay();
 });
