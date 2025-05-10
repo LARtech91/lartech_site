@@ -165,22 +165,20 @@ class CarouselManager {
         // Tools carousel with autoplay
         new Swiper('.tools-swiper', {
             slidesPerView: 'auto',
-            centeredSlides: true,
-            spaceBetween: 30,
+            centeredSlides: false,
+            spaceBetween: 20,
             loop: true,
-            speed: 800,
+            loopFillGroupWithBlank: true,
+            loopedSlides: 12,
+            speed: 1000,
+            allowTouchMove: true,
+            watchSlidesProgress: true,
             autoplay: {
                 delay: 3000,
                 disableOnInteraction: false,
-                pauseOnMouseEnter: true
-            },
-            effect: "coverflow",
-            coverflowEffect: {
-                rotate: 0,
-                stretch: 0,
-                depth: 100,
-                modifier: 1,
-                slideShadows: false,
+                pauseOnMouseEnter: true,
+                waitForTransition: true,
+                reverseDirection: false
             },
             pagination: {
                 el: '.swiper-pagination',
@@ -193,20 +191,20 @@ class CarouselManager {
             },
             breakpoints: {
                 320: {
-                    slidesPerView: 1.5,
-                    spaceBetween: 15
+                    slidesPerView: 3,
+                    spaceBetween: 10
                 },
                 480: {
-                    slidesPerView: 2.5,
-                    spaceBetween: 20
+                    slidesPerView: 4,
+                    spaceBetween: 15
                 },
                 768: {
-                    slidesPerView: 3.5,
-                    spaceBetween: 25
+                    slidesPerView: 5,
+                    spaceBetween: 20
                 },
                 1024: {
-                    slidesPerView: 5.5,
-                    spaceBetween: 30
+                    slidesPerView: 6,
+                    spaceBetween: 25
                 }
             }
         });
