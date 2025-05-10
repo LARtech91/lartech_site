@@ -103,8 +103,10 @@ body {
 
 @media (max-width: 768px) {
     body {
-        background-size: 300% auto;
+        background-size: cover;
         background-position: center top;
+        background-repeat: repeat-y;
+        min-height: 100vh;
     }
 }
 
