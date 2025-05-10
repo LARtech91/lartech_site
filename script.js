@@ -164,16 +164,28 @@ class CarouselManager {
 
         // Tools carousel with autoplay
         new Swiper('.tools-swiper', {
-            slidesPerView: 6,
-            spaceBetween: 24,
+            slidesPerView: 'auto',
+            centeredSlides: true,
+            spaceBetween: 30,
             loop: true,
+            speed: 800,
             autoplay: {
-                delay: 2500,
+                delay: 3000,
                 disableOnInteraction: false,
+                pauseOnMouseEnter: true
+            },
+            effect: "coverflow",
+            coverflowEffect: {
+                rotate: 0,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: false,
             },
             pagination: {
                 el: '.swiper-pagination',
                 clickable: true,
+                dynamicBullets: true
             },
             navigation: {
                 nextEl: '.swiper-button-next',
@@ -181,20 +193,20 @@ class CarouselManager {
             },
             breakpoints: {
                 320: {
-                    slidesPerView: 2,
-                    spaceBetween: 10
-                },
-                480: {
-                    slidesPerView: 3,
+                    slidesPerView: 1.5,
                     spaceBetween: 15
                 },
-                768: {
-                    slidesPerView: 4,
+                480: {
+                    slidesPerView: 2.5,
                     spaceBetween: 20
                 },
+                768: {
+                    slidesPerView: 3.5,
+                    spaceBetween: 25
+                },
                 1024: {
-                    slidesPerView: 6,
-                    spaceBetween: 24
+                    slidesPerView: 5.5,
+                    spaceBetween: 30
                 }
             }
         });
@@ -233,4 +245,18 @@ document.addEventListener('DOMContentLoaded', () => {
     new Modal();
     CarouselManager.initializeCarousels();
     ScrollAnimator.init();
+    
+    // Header scroll effect
+    const header = document.querySelector('.main-header');
+    const scrollThreshold = 100;
+    
+    window.addEventListener('scroll', () => {
+        requestAnimationFrame(() => {
+            if (window.scrollY > scrollThreshold) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    });
 });
