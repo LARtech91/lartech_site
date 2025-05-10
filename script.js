@@ -1,29 +1,51 @@
-// Usar IntersectionObserver com debounce para melhor performance
-document.addEventListener('DOMContentLoaded', () => {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
 
-    // Menu mobile com melhor performance
-    if (menuToggle && navLinks) {
-        menuToggle.addEventListener('click', () => {
-            requestAnimationFrame(() => {
-                menuToggle.classList.toggle('active');
-                navLinks.classList.toggle('active');
-            });
-        });
+// Utility functions
+const debounce = (fn, delay) => {
+    let timeoutId;
+    return (...args) => {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => fn.apply(this, args), delay);
+    };
+};
 
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                requestAnimationFrame(() => {
-                    menuToggle.classList.remove('active');
-                    navLinks.classList.remove('active');
-                });
-            });
+// Mobile menu handling
+class MobileMenu {
+    constructor() {
+        this.menuToggle = document.querySelector('.menu-toggle');
+        this.navLinks = document.querySelector('.nav-links');
+        this.init();
+    }
+
+    init() {
+        if (!this.menuToggle || !this.navLinks) return;
+        
+        this.menuToggle.addEventListener('click', () => this.toggleMenu());
+        this.navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => this.closeMenu());
         });
     }
 
-    // Smooth scroll otimizado
-    const smoothScroll = (target) => {
+    toggleMenu() {
+        requestAnimationFrame(() => {
+            this.menuToggle.classList.toggle('active');
+            this.menuToggle.setAttribute('aria-expanded', 
+                this.menuToggle.classList.contains('active'));
+            this.navLinks.classList.toggle('active');
+        });
+    }
+
+    closeMenu() {
+        requestAnimationFrame(() => {
+            this.menuToggle.classList.remove('active');
+            this.menuToggle.setAttribute('aria-expanded', 'false');
+            this.navLinks.classList.remove('active');
+        });
+    }
+}
+
+// Smooth scroll implementation
+class SmoothScroll {
+    static scroll(target) {
         const startPosition = window.pageYOffset;
         const targetPosition = target.getBoundingClientRect().top + startPosition;
         const distance = targetPosition - startPosition;
@@ -43,155 +65,172 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         requestAnimationFrame(animation);
-    };
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                smoothScroll(target);
-            }
-        });
-    });
-
-    // Intersection Observer otimizado
-    const observerCallback = (entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                requestAnimationFrame(() => {
-                    entry.target.classList.add('visible');
-                });
-            }
-        });
-    };
-
-    const observer = new IntersectionObserver(observerCallback, {
-        threshold: 0.1,
-        rootMargin: '50px'
-    });
-
-    document.querySelectorAll('section').forEach((section) => {
-        observer.observe(section);
-    });
-
-    // Modal com melhor UX
-    const modal = document.getElementById('policyModal');
-    const closeButton = document.querySelector('.close-modal');
-    const termsContent = document.getElementById('termsContent');
-    const privacyContent = document.getElementById('privacyContent');
-
-    const closeModal = () => {
-        if (!modal) return;
-        modal.style.opacity = '0';
-        setTimeout(() => {
-            modal.style.display = 'none';
-            modal.style.opacity = '1';
-        }, 300);
-    };
-
-    window.openModal = function(type) {
-        if (!modal || !termsContent || !privacyContent) return;
-
-        modal.style.display = 'block';
-        requestAnimationFrame(() => {
-            if (type === 'terms') {
-                termsContent.style.display = 'block';
-                privacyContent.style.display = 'none';
-            } else {
-                termsContent.style.display = 'none';
-                privacyContent.style.display = 'block';
-            }
-        });
-    };
-
-    if (closeButton) {
-        closeButton.onclick = closeModal;
     }
 
-    window.onclick = function(event) {
-        if (event.target === modal) {
-            closeModal();
+    static init() {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(anchor.getAttribute('href'));
+                if (target) {
+                    this.scroll(target);
+                }
+            });
+        });
+    }
+}
+
+// Modal handling
+class Modal {
+    constructor() {
+        this.modal = document.getElementById('policyModal');
+        this.closeButton = document.querySelector('.close-modal');
+        this.termsContent = document.getElementById('termsContent');
+        this.privacyContent = document.getElementById('privacyContent');
+        this.init();
+    }
+
+    init() {
+        if (!this.modal) return;
+        
+        if (this.closeButton) {
+            this.closeButton.onclick = () => this.close();
         }
-    };
 
-    // Tools Carousel Implementation
-    const carousel = document.querySelector('.tools-carousel');
-    const track = document.querySelector('.carousel-track');
-    const prevButton = document.querySelector('.prev-button');
-    const nextButton = document.querySelector('.next-button');
-    let autoplayInterval;
-    let isDragging = false;
-    let startX;
-    let scrollLeft;
-
-    const startAutoplay = () => {
-        stopAutoplay();
-        autoplayInterval = setInterval(() => {
-            const scrollAmount = track.offsetWidth * 0.2;
-            if (track.scrollLeft >= (track.scrollWidth - track.offsetWidth - 10)) {
-                track.scrollLeft = 0;
-            } else {
-                track.scrollTo({
-                    left: track.scrollLeft + scrollAmount,
-                    behavior: 'smooth'
-                });
+        window.onclick = (event) => {
+            if (event.target === this.modal) {
+                this.close();
             }
-        }, 3000);
-    };
+        };
 
-    const stopAutoplay = () => {
-        if (autoplayInterval) {
-            clearInterval(autoplayInterval);
-            autoplayInterval = null;
-        }
-    };
+        window.openModal = (type) => this.open(type);
+    }
 
-    const handleDragStart = (e) => {
-        isDragging = true;
-        startX = e.type === 'mousedown' ? e.pageX : e.touches[0].pageX;
-        scrollLeft = track.scrollLeft;
-        stopAutoplay();
-    };
+    open(type) {
+        if (!this.modal || !this.termsContent || !this.privacyContent) return;
 
-    const handleDragEnd = () => {
-        isDragging = false;
-        startAutoplay();
-    };
+        this.modal.style.display = 'block';
+        requestAnimationFrame(() => {
+            if (type === 'terms') {
+                this.termsContent.style.display = 'block';
+                this.privacyContent.style.display = 'none';
+            } else {
+                this.termsContent.style.display = 'none';
+                this.privacyContent.style.display = 'block';
+            }
+        });
+    }
 
-    const handleDragMove = (e) => {
-        if (!isDragging) return;
-        e.preventDefault();
-        const x = e.type === 'mousemove' ? e.pageX : e.touches[0].pageX;
-        const dist = (startX - x);
-        track.scrollLeft = scrollLeft + dist;
-    };
+    close() {
+        if (!this.modal) return;
+        this.modal.style.opacity = '0';
+        setTimeout(() => {
+            this.modal.style.display = 'none';
+            this.modal.style.opacity = '1';
+        }, 300);
+    }
+}
 
-    // Event Listeners
-    track.addEventListener('mousedown', handleDragStart);
-    track.addEventListener('touchstart', handleDragStart);
+// Carousel configuration
+class CarouselManager {
+    static initializeCarousels() {
+        // Static carousels configuration
+        const staticSwiperConfig = {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            autoplay: false,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                }
+            }
+        };
 
-    document.addEventListener('mousemove', handleDragMove);
-    document.addEventListener('touchmove', handleDragMove, { passive: false });
+        // Initialize static carousels
+        ['services', 'process', 'industry', 'diagnostic', 'cases'].forEach(type => {
+            new Swiper(`.${type}-swiper`, staticSwiperConfig);
+        });
 
-    document.addEventListener('mouseup', handleDragEnd);
-    document.addEventListener('touchend', handleDragEnd);
+        // Tools carousel with autoplay
+        new Swiper('.tools-swiper', {
+            slidesPerView: 6,
+            spaceBetween: 24,
+            loop: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 2,
+                    spaceBetween: 10
+                },
+                480: {
+                    slidesPerView: 3,
+                    spaceBetween: 15
+                },
+                768: {
+                    slidesPerView: 4,
+                    spaceBetween: 20
+                },
+                1024: {
+                    slidesPerView: 6,
+                    spaceBetween: 24
+                }
+            }
+        });
+    }
+}
 
-    track.addEventListener('mouseover', stopAutoplay);
-    track.addEventListener('mouseout', startAutoplay);
+// Intersection Observer for animations
+class ScrollAnimator {
+    static init() {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        requestAnimationFrame(() => {
+                            entry.target.classList.add('visible');
+                        });
+                    }
+                });
+            },
+            {
+                threshold: 0.1,
+                rootMargin: '50px'
+            }
+        );
 
-    prevButton.addEventListener('click', () => {
-        track.scrollLeft -= track.offsetWidth * 0.3;
-        stopAutoplay();
-        setTimeout(startAutoplay, 2000);
-    });
+        document.querySelectorAll('section').forEach((section) => {
+            observer.observe(section);
+        });
+    }
+}
 
-    nextButton.addEventListener('click', () => {
-        track.scrollLeft += track.offsetWidth * 0.3;
-        stopAutoplay();
-        setTimeout(startAutoplay, 2000);
-    });
-
-    // Start autoplay on load
-    startAutoplay();
+// Initialize everything when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    new MobileMenu();
+    SmoothScroll.init();
+    new Modal();
+    CarouselManager.initializeCarousels();
+    ScrollAnimator.init();
 });
