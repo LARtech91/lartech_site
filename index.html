@@ -1,611 +1,381 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A LARTECH AUTOMAÇÕES oferece soluções personalizadas em automação empresarial, assistentes virtuais e integrações com IA para otimizar seus processos e reduzir custos.">
-    <meta name="keywords" content="automação empresarial, assistente virtual, IA, integração, WhatsApp, APIs">
-    <meta name="robots" content="index, follow">
-    <title>LARTECH AUTOMAÇÕES - Soluções Inteligentes em Automação Empresarial</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-</head>
+// Utility functions
+const debounce = (fn, delay) => {
+    let timeoutId;
+    return (...args) => {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => fn.apply(this, args), delay);
+    };
+};
 
-<body>
-    <header class="main-header" role="banner">
-        <nav class="main-nav" role="navigation">
-            <a href="#" class="logo" aria-label="LARTECH AUTOMAÇÕES - Página inicial">
-                <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//logo_vertical.png"
-                    alt="LARTECH AUTOMAÇÕES Logo" 
-                    class="logo-img"
-                    width="150"
-                    height="60"
-                    loading="lazy">
-            </a>
-            <button class="menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <div class="nav-links" role="menu">
-                <a href="#inicio" role="menuitem">Início</a>
-                <a href="#servicos" role="menuitem">Serviços</a>
-                <a href="#como-funciona" role="menuitem">Como Funciona</a>
-                <a href="#setores" role="menuitem">Setores</a>
-                <a href="#cases" role="menuitem">Cases</a>
-                <a href="#ferramentas" role="menuitem">Ferramentas</a>
-                <a href="#blog" role="menuitem">Blog</a>
-                <a href="#diagnostico" role="menuitem">Diagnóstico</a>
-            </div>
-        </nav>
-    </header>
+// Mobile menu handling
+class MobileMenu {
+    constructor() {
+        this.menuToggle = document.querySelector('.menu-toggle');
+        this.navLinks = document.querySelector('.nav-links');
+        this.init();
+    }
 
-    <main id="main-content" role="main">
-        <section id="inicio" class="hero" aria-labelledby="hero-title">
-            <div class="hero-content">
-                <h1 id="hero-title">Automação Inteligente para sua Empresa – Mais Eficiência, Menos Custos</h1>
-                <p>Criamos soluções de automação com IA sob medida para pequenas e médias empresas e profissionais autônomos, focando na eficiência operacional e na escalabilidade dos seus negócios.</p>
-                <a href="form.html" class="cta-button" aria-label="Solicitar diagnóstico gratuito">Solicitar Diagnóstico Gratuito</a>
-            </div>
-            <div class="hero-image">
-                <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//header1.png"
-                    alt="Ilustração de automação inteligente"
-                    class="hero-img"
-                    loading="lazy">
-            </div>
-        </section>
+    init() {
+        if (!this.menuToggle || !this.navLinks) return;
 
-        <section class="ai-assistant">
-            <div class="ai-content">
-                <h2>Experimente Nossa Inteligência Artificial</h2>
-                <p>Converse com nosso assistente de IA comercial e experimente, na prática, o padrão de atendimento que queremos entregar para o seu negócio.</p>
-                <div class="ai-benefits">
-                    <div class="ai-benefit">
-                        <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//atendimentoautomatico%20(1).png" alt="Atendimento Automático" class="benefit-icon">
-                        <p>Atendimento Automático 24h por Dia</p>
-                    </div>
-                    <div class="ai-benefit">
-                        <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//resposta%20imediata.png" alt="Respostas Imediatas" class="benefit-icon">
-                        <p>Respostas Imediatas com IA</p>
-                    </div>
-                    <div class="ai-benefit">
-                        <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//experienciasobmedida.png" alt="Experiências Sob Medida" class="benefit-icon">
-                        <p>Experiências Feitas Sob Medida</p>
-                    </div>
-                </div>
-                <a href="form.html" class="cta-button">Experimentar Agora</a>
-            </div>
-        </section>
+        this.menuToggle.addEventListener('click', () => this.toggleMenu());
+        this.navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => this.closeMenu());
+        });
+    }
 
-        <section id="servicos" class="services">
-            <h2>Soluções Sob Medida para Seu Negócio</h2>
-            <div class="swiper services-swiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="service-card">
-                            <h3>Agente Virtual de Atendimento com IA</h3>
-                            <p class="service-description">Tenha um assistente virtual que atende seus clientes 24/7, responde dúvidas e faz agendamentos automaticamente pelo WhatsApp ou site. Economize tempo e recursos com atendimento inteligente personalizado para sua marca.</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="service-card">
-                            <h3>Diagnóstico Digital Automatizado</h3>
-                            <p>Ferramenta que avalia o nível de automação da sua empresa e entrega um relatório com
-                                recomendações práticas.</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="service-card">
-                            <h3>Agendamento Inteligente com IA</h3>
-                            <p>Deixe um assistente virtual cuidar da sua agenda, marcando, remarcando e enviando lembretes
-                                personalizados automaticamente.</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="service-card">
-                            <h3>Captura Inteligente de Leads</h3>
-                            <p>Automatize a prospecção de novos clientes com IA. Descubra, filtre e envie mensagens automáticas
-                                para leads qualificados via e-mail ou WhatsApp.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-            </div>
-        </section>
+    toggleMenu() {
+        requestAnimationFrame(() => {
+            this.menuToggle.classList.toggle('active');
+            this.menuToggle.setAttribute('aria-expanded', 
+                this.menuToggle.classList.contains('active'));
+            this.navLinks.classList.toggle('active');
+        });
+    }
 
-        <section id="como-funciona" class="process">
-            <h2>Como é realizado o processo de implementação?</h2>
-            <div class="swiper process-swiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="process-steps">
-                            <div class="step">
-                                <div class="step-number">1</div>
-                                <h3>Diagnóstico Inicial</h3>
-                                <p>Analisamos de forma profunda seus processos atuais para identificar gargalos, ineficiências e oportunidades de automação.</p>
-                                <div class="step-divider">⸻</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="process-steps">
-                            <div class="step">
-                                <div class="step-number">2</div>
-                                <h3>Planejamento Estratégico</h3>
-                                <p>Desenhamos um plano de ação sob medida, definindo soluções, prioridades e um cronograma realista de implementação.</p>
-                                <div class="step-divider">⸻</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="process-steps">
-                            <div class="step">
-                                <div class="step-number">3</div>
-                                <h3>Desenvolvimento</h3>
-                                <p>Construímos a automação ideal para seu negócio, utilizando tecnologias modernas e adaptadas à sua realidade operacional.</p>
-                                <div class="step-divider">⸻</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="process-steps">
-                            <div class="step">
-                                <div class="step-number">4</div>
-                                <h3>Fase de Testes</h3>
-                                <p>Validamos cada etapa em um ambiente seguro para garantir estabilidade, precisão e segurança antes da ativação oficial.</p>
-                                <div class="step-divider">⸻</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="process-steps">
-                            <div class="step">
-                                <div class="step-number">5</div>
-                                <h3>Implementação</h3>
-                                <p>Integramos a solução diretamente ao seu fluxo de trabalho com acompanhamento técnico dedicado em tempo real.</p>
-                                <div class="step-divider">⸻</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="process-steps">
-                            <div class="step">
-                                <div class="step-number">6</div>
-                                <h3>Treinamento</h3>
-                                <p>Capacitamos sua equipe para aproveitar ao máximo a nova solução, garantindo autonomia e eficiência no dia a dia.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-            </div>
-        </section>
+    closeMenu() {
+        requestAnimationFrame(() => {
+            this.menuToggle.classList.remove('active');
+            this.menuToggle.setAttribute('aria-expanded', 'false');
+            this.navLinks.classList.remove('active');
+        });
+    }
+}
 
-        <section id="setores" class="industry-solutions">
-            <h2>Soluções por Setor</h2>
-            <div class="swiper industry-swiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="industry-card">
-                            <h3>Área da Saúde</h3>
-                            <ul class="solution-list">
-                                <li>Agendamento inteligente de consultas</li>
-                                <li>Lembretes automáticos de retorno</li>
-                                <li>Triagem inicial via chatbot</li>
-                                <li>Gestão de prontuários digitais</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="industry-card">
-                            <h3>Profissionais de Estética</h3>
-                            <ul class="solution-list">
-                                <li>Sistema de agendamento online</li>
-                                <li>Acompanhamento pós-procedimento</li>
-                                <li>Controle de estoque automatizado</li>
-                                <li>Marketing personalizado</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="industry-card">
-                            <h3>Escritórios de Advocacia</h3>
-                            <ul class="solution-list">
-                                <li>Gestão de processos automatizada</li>
-                                <li>Agendamento de audiências</li>
-                                <li>Notificações de prazos</li>
-                                <li>Organização de documentos</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="industry-card">
-                            <h3>Pequeno Varejo</h3>
-                            <ul class="solution-list">
-                                <li>Gestão de pedidos online</li>
-                                <li>Controle de estoque</li>
-                                <li>Atendimento 24/7 via chatbot</li>
-                                <li>Fidelização automatizada</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-            </div>
-        </section>
+// Smooth scroll implementation
+class SmoothScroll {
+    static scroll(target) {
+        const startPosition = window.pageYOffset;
+        const targetPosition = target.getBoundingClientRect().top + startPosition;
+        const distance = targetPosition - startPosition;
+        const duration = 800;
+        // Adiciona um offset para não esconder o conteúdo atrás do header fixo
+        const headerOffset = 80;
+        let start = null;
 
-        <section id="diagnostico" class="diagnostic">
-            <h2>Diagnóstico Gratuito de Automação</h2>
-            <p>Descubra o potencial de automação do seu negócio através do nosso diagnóstico personalizado</p>
-            <div class="diagnostic-benefits">
-                <div class="benefit">
-                    <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//analisedetalhada.png" alt="Análise Detalhada" class="benefit-icon">
-                    <h3>Análise Detalhada</h3>
-                    <p>Mapeamento completo dos seus processos</p>
-                </div>
-                <div class="benefit">
-                    <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//recomendacoes.png" alt="Recomendações" class="benefit-icon">
-                    <h3>Recomendações</h3>
-                    <p>Sugestões práticas de melhorias</p>
-                </div>
-                <div class="benefit">
-                    <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//potencialdeeconomia.png" alt="Potencial de Economia" class="benefit-icon">
-                    <h3>Potencial de Economia</h3>
-                    <p>Estimativa de redução de custos</p>
-                </div>
-                <div class="benefit">
-                    <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//planodeacao.png" alt="Plano de Ação" class="benefit-icon">
-                    <h3>Plano de Ação</h3>
-                    <p>Roteiro detalhado para implementação</p>
-                </div>
-            </div>
-            <a href="form.html" class="cta-button">Fazer Diagnóstico Agora</a>
-        </section>
+        const animation = (currentTime) => {
+            if (!start) start = currentTime;
+            const progress = currentTime - start;
+            const easeInOutQuad = (t) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
 
-        <section id="cases" class="cases">
-            <h2>Cases de Sucesso</h2>
-            <p class="section-intro">Conheça histórias reais de transformação digital realizadas pela nossa equipe</p>
+            window.scrollTo(0, startPosition + distance * easeInOutQuad(Math.min(progress / duration, 1)) - headerOffset);
 
-            <div class="swiper cases-swiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="case-card">
-                            <div class="case-content">
-                                <h3>Automação de Atendimento</h3>
-                                <p class="case-results">Redução de 70% no tempo de resposta ao cliente</p>
-                                <span class="company-type">Empresa de Varejo</span>
-                                <div class="case-details">
-                                    <p class="case-description">Uma rede de lojas de varejo com mais de 12 filiais estava sofrendo com gargalos no atendimento ao cliente, resultando em reclamações e perda de vendas.</p>
-                                    <h4>Desafio:</h4>
-                                    <ul class="case-points">
-                                        <li>Equipe sobrecarregada com perguntas repetitivas</li>
-                                        <li>Tempo médio de resposta de 36 horas</li>
-                                        <li>Alta taxa de abandono nas consultas online</li>
-                                    </ul>
-                                    <h4>Solução implementada:</h4>
-                                    <p>Desenvolvemos um assistente virtual inteligente com IA que:</p>
-                                    <ul class="case-points">
-                                        <li>Responde automaticamente a 78% das perguntas frequentes</li>
-                                        <li>Escala o atendimento sem aumentar a equipe</li>
-                                        <li>Integra-se com o sistema de gestão de estoque</li>
-                                    </ul>
-                                </div>
-                                <a href="#" class="case-study-link">Ver estudo de caso completo</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="case-card">
-                            <div class="case-content">
-                                <h3>Integração de Sistemas</h3>
-                                <p class="case-results">Economia de 20 horas semanais em processos manuais</p>
-                                <span class="company-type">Escritório Contábil</span>
-                                <div class="case-details">
-                                    <p class="case-description">Um escritório contábil com mais de 150 clientes enfrentava desafios para gerenciar dados entre diferentes plataformas, causando retrabalho e atrasos.</p>
-                                    <h4>Desafio:</h4>
-                                    <ul class="case-points">
-                                        <li>Dupla entrada de dados em múltiplos sistemas</li>
-                                        <li>Conciliação bancária manual e propensa a erros</li>
-                                        <li>Dificuldade em escalar a operação</li>
-                                    </ul>
-                                    <h4>Solução implementada:</h4>
-                                    <p>Criamos um sistema de integração que:</p>
-                                    <ul class="case-points">
-                                        <li>Sincroniza dados automaticamente entre 5 plataformas diferentes</li>
-                                        <li>Automatiza a conciliação bancária com 98% de precisão</li>
-                                        <li>Permite aumento de 40% na carteira de clientes sem novas contratações</li>
-                                    </ul>
-                                </div>
-                                <a href="#" class="case-study-link">Ver estudo de caso completo</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="case-card">
-                            <div class="case-content">
-                                <h3>Chatbot Inteligente</h3>
-                                <p class="case-results">Aumento de 45% na satisfação dos clientes</p>
-                                <span class="company-type">Clínica Médica</span>
-                                <div class="case-details">
-                                    <p class="case-description">Uma clínica com 8 especialidades médicas enfrentava problemas com agendamentos, remarcações e fila de espera, comprometendo a experiência do paciente.</p>
-                                    <h4>Desafio:</h4>
-                                    <ul class="case-points">
-                                        <li>Alto volume de ligações para a recepção</li>
-                                        <li>Taxa de absenteísmo de 22% nas consultas</li>
-                                        <li>Dificuldade em gerenciar a lista de espera</li>
-                                    </ul>
-                                    <h4>Solução implementada:</h4>
-                                    <p>Desenvolvemos um chatbot integrado que:</p>
-                                    <ul class="case-points">
-                                        <li>Automatiza agendamentos e envio de lembretes personalizados</li>
-                                        <li>Gerencia cancelamentos e preenche horários vagos automaticamente</li>
-                                        <li>Reduziu a taxa de faltas para menos de 8%</li>
-                                    </ul>
-                                </div>
-                                <a href="#" class="case-study-link">Ver estudo de caso completo</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="case-card">
-                            <div class="case-content">
-                                <h3>Automação de Marketing</h3>
-                                <p class="case-results">Aumento de 85% na conversão de leads</p>
-                                <span class="company-type">Agência Digital</span>
-                                <div class="case-details">
-                                    <p class="case-description">Uma agência de marketing digital com mais de 35 clientes ativos precisava escalar seus processos de nutrição de leads sem aumentar sua equipe.</p>
-                                    <h4>Desafio:</h4>
-                                    <ul class="case-points">
-                                        <li>Processo manual de qualificação de leads</li>
-                                        <li>Falta de personalização nas campanhas</li>
-                                        <li>Dificuldade em medir resultados em tempo real</li>
-                                    </ul>
-                                    <h4>Solução implementada:</h4>
-                                    <p>Implementamos um sistema de automação que:</p>
-                                    <ul class="case-points">
-                                        <li>Segmenta leads automaticamente com base em comportamento</li>
-                                        <li>Envia sequências de emails e mensagens personalizadas</li>
-                                        <li>Fornece dashboards em tempo real para tomada de decisões</li>
-                                    </ul>
-                                </div>
-                                <a href="#" class="case-study-link">Ver estudo de caso completo</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-            </div>
+            if (progress < duration) {
+                requestAnimationFrame(animation);
+            }
+        };
 
-            <div class="cases-cta">
-                <a href="#" class="cta-button">Ver todos os cases</a>
-            </div>
-        </section>
+        requestAnimationFrame(animation);
+    }
 
-        <section class="testimonials">
-            <h2>O Que Nossos Clientes Dizem</h2>
-            <div class="swiper testimonials-swiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="testimonial-card">
-                            <div class="client-photo">
-                                <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site/testimonial-1.jpg" alt="Foto de Mariana Silva" class="client-img" loading="lazy">
-                            </div>
-                            <div class="testimonial-content">
-                                <p class="testimonial-text">"A automação implementada pela LARTECH transformou completamente nosso atendimento ao cliente. Conseguimos atender 3x mais pessoas com o mesmo time."</p>
-                                <div class="client-info">
-                                    <h4 class="client-name">Mariana Silva</h4>
-                                    <p class="client-position">Diretora de Operações, Clínica Bem Estar</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="testimonial-card">
-                            <div class="client-photo">
-                                <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site/testimonial-2.jpg" alt="Foto de Rafael Mendes" class="client-img" loading="lazy">
-                            </div>
-                            <div class="testimonial-content">
-                                <p class="testimonial-text">"Nossa produtividade aumentou significativamente após implementarmos as soluções da LARTECH. Processos que levavam dias agora são concluídos em horas."</p>
-                                <div class="client-info">
-                                    <h4 class="client-name">Rafael Mendes</h4>
-                                    <p class="client-position">CEO, Contábil Express</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="testimonial-card">
-                            <div class="client-photo">
-                                <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site/testimonial-3.jpg" alt="Foto de Juliana Costa" class="client-img" loading="lazy">
-                            </div>
-                            <div class="testimonial-content">
-                                <p class="testimonial-text">"O retorno sobre o investimento foi impressionante. Em apenas 3 meses, já recuperamos o valor investido e agora estamos economizando tempo e recursos valiosos."</p>
-                                <div class="client-info">
-                                    <h4 class="client-name">Juliana Costa</h4>
-                                    <p class="client-position">Gerente de Marketing, TechSolutions</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-            </div>
-        </section>
+    static init() {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(anchor.getAttribute('href'));
+                if (target) {
+                    this.scroll(target);
+                }
+            });
+        });
+    }
+}
 
-        <section id="ferramentas" class="tools">
-            <h2>Conheça as ferramentas que utilizamos para transformar ideias em automações</h2>
-            <div class="swiper tools-swiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img fetchpriority="high" class="tool-icon" src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//iconen8n.png" alt="N8N" width="120" height="120"></div>
-                    <div class="swiper-slide"><img fetchpriority="high" class="tool-icon" src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//iconeopenai.png" alt="OpenAI" width="120" height="120"></div>
-                    <div class="swiper-slide"><img fetchpriority="high" class="tool-icon" src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//iconewhatsapp.png" alt="WhatsApp" width="120" height="120"></div>
-                    <div class="swiper-slide"><img fetchpriority="high" class="tool-icon" src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//iconefacebookcorreto.png" alt="Facebook" width="120" height="120"></div>
-                    <div class="swiper-slide"><img fetchpriority="high" class="tool-icon" src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//iconeinstagram.png" alt="Instagram" width="120" height="120"></div>
-                    <div class="swiper-slide"><img fetchpriority="high" class="tool-icon" src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//iconegooglecalendar.png" alt="Google Calendar" width="120" height="120"></div>
-                    <div class="swiper-slide"><img fetchpriority="high" class="tool-icon" src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//iconemake.png" alt="Make" width="120" height="120"></div>
-                    <div class="swiper-slide"><img fetchpriority="high" class="tool-icon" src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//iconenotion.png" alt="Notion" width="120" height="120"></div>
-                    <div class="swiper-slide"><img fetchpriority="high" class="tool-icon" src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//iconeslack.png" alt="Slack" width="120" height="120"></div>
-                    <div class="swiper-slide"><img fetchpriority="high" class="tool-icon" src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//inconegithub.png" alt="GitHub" width="120" height="120"></div>
-                    <div class="swiper-slide"><img fetchpriority="high" class="tool-icon" src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//iconeairtable.png" alt="Airtable" width="120" height="120"></div>
-                    <div class="swiper-slide"><img fetchpriority="high" class="tool-icon" src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//iconeevolutionapi.png" alt="Evolution API" width="120" height="120"></div>
-                    <!-- Slides duplicados para garantir continuidade visual no loop -->
-                    <div class="swiper-slide"><img fetchpriority="high" class="tool-icon" src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//iconen8n.png" alt="N8N" width="120" height="120"></div>
-                    <div class="swiper-slide"><img fetchpriority="high" class="tool-icon" src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//iconeopenai.png" alt="OpenAI" width="120" height="120"></div>
-                    <div class="swiper-slide"><img fetchpriority="high" class="tool-icon" src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//iconewhatsapp.png" alt="WhatsApp" width="120" height="120"></div>
-                    <div class="swiper-slide"><img fetchpriority="high" class="tool-icon" src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//iconefacebookcorreto.png" alt="Facebook" width="120" height="120"></div>
-                    <div class="swiper-slide"><img fetchpriority="high" class="tool-icon" src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//iconeinstagram.png" alt="Instagram" width="120" height="120"></div>
-                </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-            </div>
-        </section>
+// Modal handling
+class Modal {
+    constructor() {
+        this.modal = document.getElementById('policyModal');
+        this.closeButton = document.querySelector('.close-modal');
+        this.termsContent = document.getElementById('termsContent');
+        this.privacyContent = document.getElementById('privacyContent');
+        this.init();
+    }
 
-        <section id="blog" class="blog-section">
-            <h2>Blog - Conteúdo Educativo</h2>
-            <p class="section-intro">Conheça mais sobre automação empresarial e IA através de nossos artigos especializados</p>
+    init() {
+        if (!this.modal) return;
 
-            <div class="blog-grid">
-                <article class="blog-post">
-                    <div class="blog-post-img">
-                        <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//blog-automation.jpg" alt="Automação Empresarial" loading="lazy">
-                    </div>
-                    <div class="blog-post-content">
-                        <span class="blog-post-date">10 Abril, 2024</span>
-                        <h3>5 Processos que Toda Empresa Deveria Automatizar</h3>
-                        <p>Descubra quais processos têm o maior retorno quando automatizados e como implementar estas mudanças com o mínimo de disrupção.</p>
-                        <a href="blog-post-1.html" class="blog-read-more">Ler artigo completo</a>
-                    </div>
-                </article>
+        if (this.closeButton) {
+            this.closeButton.onclick = () => this.close();
+        }
 
-                <article class="blog-post">
-                    <div class="blog-post-img">
-                        <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//blog-ai.jpg" alt="Inteligência Artificial" loading="lazy">
-                    </div>
-                    <div class="blog-post-content">
-                        <span class="blog-post-date">25 Março, 2024</span>
-                        <h3>Inteligência Artificial no Atendimento ao Cliente: Um Guia Completo</h3>
-                        <p>Como a IA está transformando a experiência do cliente e gerando economia operacional sem perder o toque humano nas interações.</p>
-                        <a href="blog-post-1.html" class="blog-read-more">Ler artigo completo</a>
-                    </div>
-                </article>
+        window.onclick = (event) => {
+            if (event.target === this.modal) {
+                this.close();
+            }
+        };
 
-                <article class="blog-post">
-                    <div class="blog-post-img">
-                        <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//blog-integration.jpg" alt="Integração de Sistemas" loading="lazy">
-                    </div>
-                    <div class="blog-post-content">
-                        <span class="blog-post-date">18 Fevereiro, 2024</span>
-                        <h3>API e Integrações: Conectando Seus Sistemas para Maior Produtividade</h3>
-                        <p>Entenda como a integração entre diferentes plataformas pode eliminar a duplicação de dados e criar fluxos de trabalho contínuos.</p>
-                        <a href="#" class="blog-read-more">Ler artigo completo</a>
-                    </div>
-                </article>
-            </div>
+        window.openModal = (type) => this.open(type);
+    }
 
-            <div class="blog-cta">
-                <a href="#" class="cta-button">Ver todos os artigos</a>
-            </div>
-        </section>
+    open(type) {
+        if (!this.modal || !this.termsContent || !this.privacyContent) return;
 
-        <section class="cta-final">
-            <h2>Vamos automatizar seu negócio juntos?</h2>
-            <a href="form.html" class="cta-button">Solicitar Diagnóstico Gratuito</a>
-        </section>
-    </main>
+        this.modal.style.display = 'block';
+        requestAnimationFrame(() => {
+            if (type === 'terms') {
+                this.termsContent.style.display = 'block';
+                this.privacyContent.style.display = 'none';
+            } else {
+                this.termsContent.style.display = 'none';
+                this.privacyContent.style.display = 'block';
+            }
+        });
+    }
 
-    <footer class="main-footer" role="contentinfo">
-        <div class="footer-content">
-            <div class="footer-brand">
-                <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//logo_vertical.png" alt="LARTECH AUTOMAÇÕES Logo" class="footer-logo">
-                <p>Transformando ideias em automações inteligentes</p>
-            </div>
-            <div class="footer-info">
-                <h4>Contato</h4>
-                <p>CNPJ: 59.632.001/0001-00</p>
-                <p>Email: <a href="mailto:Lucas.ribeiro@lartechautomation.com">Lucas.ribeiro@lartechautomation.com</a></p>
-            </div>
-            <div class="footer-social">
-                <h4>Redes Sociais</h4>
-                <div class="social-icons">
-                    <a href="#" class="social-icon" aria-label="Facebook">
-                        <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//facebook.png" alt="Facebook">
-                    </a>
-                    <a href="#" class="social-icon" aria-label="Instagram">
-                        <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//instagram.png" alt="Instagram">
-                    </a>
-                </div>
-            </div>
-            <div class="footer-links">
-                <h4>Links Úteis</h4>
-                <a href="#" onclick="openModal('terms')">Termos de Uso</a>
-                <a href="#" onclick="openModal('privacy')">Política de Privacidade</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p class="copyright">&copy; 2024 LARTECH AUTOMAÇÕES. Todos os direitos reservados.</p>
-        </div>
-    </footer>
+    close() {
+        if (!this.modal) return;
+        this.modal.style.opacity = '0';
+        setTimeout(() => {
+            this.modal.style.display = 'none';
+            this.modal.style.opacity = '1';
+        }, 300);
+    }
+}
 
-    <div id="policyModal" class="modal" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <div id="termsContent" class="modal-section">
-                <h2>Termos de Uso</h2>
-                <div class="policy-text">
-                    <h3>1. Aceitação dos Termos</h3>
-                    <p>Ao acessar e usar este site, você aceita e concorda em cumprir estes termos e condições de uso.</p>
+// Carousel configuration
+class CarouselManager {
+    static initializeCarousels() {
+        // Static carousels configuration
+        const staticSwiperConfig = {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            autoplay: false,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                }
+            }
+        };
 
-                    <h3>2. Uso do Serviço</h3>
-                    <p>O usuário se compromete a utilizar os serviços de acordo com a lei, a moral, os bons costumes e a ordem pública.</p>
+        // Initialize static carousels
+        ['services', 'process', 'industry', 'diagnostic', 'cases', 'testimonials'].forEach(type => {
+            new Swiper(`.${type}-swiper`, staticSwiperConfig);
+        });
 
-                    <h3>3. Propriedade Intelectual</h3>
-                    <p>Todo o conteúdo deste site é de propriedade da LARTECH AUTOMAÇÕES.</p>
+        // Inicialização do carrossel de ferramentas com IntersectionObserver para controle de autoplay
+        let toolsSwiper = null;
+        
+        // Criação de um observador de interseção para controlar o autoplay
+        const toolsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (toolsSwiper) {
+                    if (entry.isIntersecting) {
+                        // Inicia o autoplay quando o carrossel está visível
+                        toolsSwiper.autoplay.start();
+                    } else {
+                        // Pausa o autoplay quando o carrossel não está visível
+                        toolsSwiper.autoplay.stop();
+                    }
+                }
+            });
+        }, { threshold: 0.25 }); // Considera visível quando pelo menos 25% do elemento estiver visível
+        
+        // Configuração e inicialização do Swiper para as ferramentas
+        toolsSwiper = new Swiper('.tools-swiper', {
+            slidesPerView: 'auto',
+            centeredSlides: false,
+            spaceBetween: 20,
+            loop: true,
+            loopAdditionalSlides: 5, // Adiciona mais slides no loop para evitar espaços vazios
+            loopPreventsSlide: false, // Permitir navegação mesmo durante transições
+            loopFillGroupWithBlank: false, // Desativado para evitar espaços em branco
+            loopedSlides: 12,
+            speed: 800, // Velocidade aumentada para transição mais suave
+            allowTouchMove: true,
+            watchSlidesProgress: true,
+            preloadImages: true, // Força o carregamento prévio das imagens
+            updateOnImagesReady: true, // Atualiza o carrossel quando as imagens estiverem prontas
+            observer: true,
+            observeParents: true,
+            updateOnWindowResize: true,
+            preventClicks: false, // Permite cliques durante a transição
+            preventClicksPropagation: false,
+            simulateTouch: true,
+            grabCursor: true,
+            lazy: {
+                enabled: false // Desativamos o lazy loading para garantir que as imagens apareçam
+            },
+            rewind: false, // Não usar rewind para manter o loop contínuo
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+                waitForTransition: false, // Não esperar a transição terminar para iniciar a próxima
+                reverseDirection: false
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+                dynamicBullets: true
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 3,
+                    spaceBetween: 10
+                },
+                480: {
+                    slidesPerView: 4,
+                    spaceBetween: 15
+                },
+                768: {
+                    slidesPerView: 5,
+                    spaceBetween: 20
+                },
+                1024: {
+                    slidesPerView: 6,
+                    spaceBetween: 25
+                }
+            },
+            on: {
+                beforeInit: function() {
+                    // Garantir que todos os elementos estejam prontos antes da inicialização
+                    const toolsSlides = document.querySelectorAll('.tools-swiper .swiper-slide img');
+                    toolsSlides.forEach(img => {
+                        if (!img.complete) {
+                            img.setAttribute('loading', 'eager');
+                        }
+                    });
+                },
+                init: function() {
+                    // Observa o carrossel para controlar o autoplay
+                    const toolsSection = document.getElementById('ferramentas');
+                    if (toolsSection) {
+                        toolsObserver.observe(toolsSection);
+                    }
+                    
+                    // Força a renderização das imagens e atualiza o layout
+                    setTimeout(() => {
+                        this.update();
+                        this.updateSize();
+                        this.updateSlides();
+                    }, 300);
+                },
+                imagesReady: function() {
+                    // Quando todas as imagens estiverem carregadas, atualize o layout
+                    this.update();
+                    // Avança um slide para garantir que o loop seja iniciado corretamente
+                    this.slideNext(800);
+                },
+                loopFix: function() {
+                    // Chamado quando o loop é corrigido
+                    this.update();
+                }
+            }
+        });
+    }
+}
 
-                    <h3>4. Limitação de Responsabilidade</h3>
-                    <p>A LARTECH AUTOMAÇÕES não se responsabiliza por danos indiretos decorrentes do uso do site.</p>
-                </div>
-            </div>
-            <div id="privacyContent" class="modal-section">
-                <h2>Política de Privacidade</h2>
-                <div class="policy-text">
-                    <h3>1. Coleta de Dados</h3>
-                    <p>Coletamos informações necessárias para fornecer nossos serviços, incluindo nome, e-mail e telefone.</p>
+// Intersection Observer for animations
+class ScrollAnimator {
+    static init() {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        requestAnimationFrame(() => {
+                            entry.target.classList.add('visible');
+                        });
+                    }
+                });
+            },
+            {
+                threshold: 0.1,
+                rootMargin: '50px'
+            }
+        );
 
-                    <h3>2. Uso das Informações</h3>
-                    <p>As informações coletadas são utilizadas para melhorar nossos serviços e comunicação com clientes.</p>
+        document.querySelectorAll('section').forEach((section) => {
+            observer.observe(section);
+        });
+    }
+}
 
-                    <h3>3. Proteção de Dados</h3>
-                    <p>Implementamos medidas de segurança para proteger suas informações pessoais.</p>
+// Initialize everything when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    new MobileMenu();
+    SmoothScroll.init();
+    new Modal();
+    
+    // Verifica se Swiper existe antes de tentar inicializar
+    if (typeof Swiper !== 'undefined') {
+        CarouselManager.initializeCarousels();
+    } else {
+        console.warn('Swiper não está disponível. Os carrosséis não serão inicializados.');
+    }
+    
+    ScrollAnimator.init();
 
-                    <h3>4. Cookies</h3>
-                    <p>Utilizamos cookies para melhorar a experiência do usuário em nosso site.</p>
-                </div>
-            </div>
-        </div>
-    </div>
+    // Header scroll effect
+    const header = document.querySelector('.main-header');
+    if (header) {
+        const scrollThreshold = 100;
 
-    <a href="https://wa.me/5511999027653" 
-       class="whatsapp-float" 
-       aria-label="Contato via WhatsApp"
-       role="button">
-        <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//whatsapp.png"
-            alt="Ícone do WhatsApp"
-            loading="lazy">
-    </a>
-
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="script.js" defer></script>
-</body>
-</html>
+        window.addEventListener('scroll', () => {
+            requestAnimationFrame(() => {
+                if (window.scrollY > scrollThreshold) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+        });
+    }
+    
+    // Modal handling for other pages
+    const modal = document.getElementById('policyModal');
+    if (modal) {
+        const closeButton = document.querySelector('.close-modal');
+        const termsContent = document.getElementById('termsContent');
+        const privacyContent = document.getElementById('privacyContent');
+        
+        if (closeButton) {
+            closeButton.onclick = () => {
+                modal.style.opacity = '0';
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                    modal.style.opacity = '1';
+                }, 300);
+            };
+        }
+        
+        window.onclick = (event) => {
+            if (event.target === modal) {
+                modal.style.opacity = '0';
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                    modal.style.opacity = '1';
+                }, 300);
+            }
+        };
+        
+        window.openModal = (type) => {
+            if (!modal || !termsContent || !privacyContent) return;
+            
+            modal.style.display = 'block';
+            requestAnimationFrame(() => {
+                if (type === 'terms') {
+                    termsContent.style.display = 'block';
+                    privacyContent.style.display = 'none';
+                } else {
+                    termsContent.style.display = 'none';
+                    privacyContent.style.display = 'block';
+                }
+            });
+        };
+    }
+});
