@@ -1,0 +1,645 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Formulário de diagnóstico para automação personalizada - LARTECH AUTOMAÇÕES">
+    <meta name="keywords" content="automação empresarial, formulário, diagnóstico, planejamento de negócios">
+    <meta name="robots" content="index, follow">
+    <title>Diagnóstico de Automação - LARTECH AUTOMAÇÕES</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+</head>
+<body>
+    <header class="main-header" role="banner">
+        <nav class="main-nav" role="navigation">
+            <a href="index.html" class="logo" aria-label="LARTECH AUTOMAÇÕES - Página inicial">
+                <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//logo_vertical.png"
+                    alt="LARTECH AUTOMAÇÕES Logo" 
+                    class="logo-img"
+                    width="150"
+                    height="60"
+                    loading="lazy">
+            </a>
+            <button class="menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links" role="menu">
+                <a href="index.html#inicio" role="menuitem">Início</a>
+                <a href="index.html#servicos" role="menuitem">Serviços</a>
+                <a href="index.html#como-funciona" role="menuitem">Como Funciona</a>
+                <a href="index.html#cases" role="menuitem">Cases</a>
+                <a href="blog.html" role="menuitem">Blog</a>
+                <a href="index.html#diagnostico" role="menuitem">Diagnóstico</a>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content" role="main">
+        <section class="form-section visible">
+            <div class="container">
+                <h1>Diagnóstico Completo para Automação de Negócios</h1>
+                <p class="section-intro">Preencha este formulário para receber um diagnóstico detalhado e personalizado do seu negócio, com recomendações específicas de automação que poderão transformar sua operação.</p>
+                
+                <form id="contactForm" class="contact-form">
+                    <h2 class="form-section-title">Informações de Contato</h2>
+                    
+                    <div class="form-group">
+                        <label for="name">Nome Completo*</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="position">Cargo*</label>
+                        <input type="text" id="position" name="position" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">E-mail Corporativo*</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Telefone/WhatsApp*</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    
+                    <h2 class="form-section-title">Informações da Empresa</h2>
+                    
+                    <div class="form-group">
+                        <label for="company">Nome da Empresa*</label>
+                        <input type="text" id="company" name="company" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company_size">Tamanho da Empresa*</label>
+                        <select id="company_size" name="company_size" required>
+                            <option value="">Selecione uma opção</option>
+                            <option value="1-5">1-5 funcionários</option>
+                            <option value="6-10">6-10 funcionários</option>
+                            <option value="11-50">11-50 funcionários</option>
+                            <option value="51-100">51-100 funcionários</option>
+                            <option value="101-500">101-500 funcionários</option>
+                            <option value="500+">Mais de 500 funcionários</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="business">Segmento de Atuação*</label>
+                        <select id="business" name="business" required>
+                            <option value="">Selecione uma opção</option>
+                            <option value="saude">Saúde</option>
+                            <option value="estetica">Estética</option>
+                            <option value="advocacia">Advocacia</option>
+                            <option value="contabilidade">Contabilidade</option>
+                            <option value="varejo">Varejo</option>
+                            <option value="servicos">Serviços</option>
+                            <option value="tecnologia">Tecnologia</option>
+                            <option value="educacao">Educação</option>
+                            <option value="financeiro">Financeiro</option>
+                            <option value="industria">Indústria</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group" id="other_business_container" style="display: none;">
+                        <label for="other_business">Especifique o Segmento</label>
+                        <input type="text" id="other_business" name="other_business">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="revenue">Faturamento Anual Aproximado</label>
+                        <select id="revenue" name="revenue">
+                            <option value="">Prefiro não informar</option>
+                            <option value="ate-100k">Até R$ 100 mil</option>
+                            <option value="100k-500k">R$ 100 mil a R$ 500 mil</option>
+                            <option value="500k-1m">R$ 500 mil a R$ 1 milhão</option>
+                            <option value="1m-5m">R$ 1 milhão a R$ 5 milhões</option>
+                            <option value="5m-10m">R$ 5 milhões a R$ 10 milhões</option>
+                            <option value="acima-10m">Acima de R$ 10 milhões</option>
+                        </select>
+                    </div>
+                    
+                    <h2 class="form-section-title">Diagnóstico de Processos</h2>
+                    
+                    <div class="form-group">
+                        <label for="current_tools">Quais ferramentas tecnológicas sua empresa utiliza atualmente?* (Selecione todas aplicáveis)</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="tool_erp" name="current_tools" value="erp">
+                                <label for="tool_erp">ERP</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="tool_crm" name="current_tools" value="crm">
+                                <label for="tool_crm">CRM</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="tool_planilhas" name="current_tools" value="planilhas">
+                                <label for="tool_planilhas">Planilhas Excel/Google</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="tool_whatsapp" name="current_tools" value="whatsapp">
+                                <label for="tool_whatsapp">WhatsApp Business</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="tool_email_marketing" name="current_tools" value="email_marketing">
+                                <label for="tool_email_marketing">Software de Email Marketing</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="tool_gestao_financeira" name="current_tools" value="gestao_financeira">
+                                <label for="tool_gestao_financeira">Sistema de Gestão Financeira</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="tool_chatbot" name="current_tools" value="chatbot">
+                                <label for="tool_chatbot">Chatbot</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="tool_outros" name="current_tools" value="outros">
+                                <label for="tool_outros">Outros</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group" id="other_tools_container" style="display: none;">
+                        <label for="other_tools">Quais outras ferramentas você utiliza?</label>
+                        <input type="text" id="other_tools" name="other_tools">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="pain_points">Quais são os principais gargalos ou dificuldades nos processos da sua empresa?* (Selecione até 3)</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="pain_atendimento" name="pain_points" value="atendimento">
+                                <label for="pain_atendimento">Atendimento ao cliente lento/ineficiente</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="pain_processos_manuais" name="pain_points" value="processos_manuais">
+                                <label for="pain_processos_manuais">Processos manuais e repetitivos</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="pain_gestao_dados" name="pain_points" value="gestao_dados">
+                                <label for="pain_gestao_dados">Dificuldade na gestão de dados</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="pain_integracao_sistemas" name="pain_points" value="integracao_sistemas">
+                                <label for="pain_integracao_sistemas">Falta de integração entre sistemas</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="pain_agenda" name="pain_points" value="agenda">
+                                <label for="pain_agenda">Problemas com agendamento/no-shows</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="pain_leads" name="pain_points" value="leads">
+                                <label for="pain_leads">Baixa conversão de leads</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="pain_produtividade" name="pain_points" value="produtividade">
+                                <label for="pain_produtividade">Baixa produtividade da equipe</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="pain_financeiro" name="pain_points" value="financeiro">
+                                <label for="pain_financeiro">Processos financeiros ineficientes</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="pain_outro" name="pain_points" value="outro">
+                                <label for="pain_outro">Outro</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group" id="other_pain_container" style="display: none;">
+                        <label for="other_pain">Descreva seu principal gargalo</label>
+                        <input type="text" id="other_pain" name="other_pain">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="hours_spent">Aproximadamente, quantas horas por semana sua equipe gasta com tarefas manuais e repetitivas?*</label>
+                        <select id="hours_spent" name="hours_spent" required>
+                            <option value="">Selecione uma opção</option>
+                            <option value="menos-5">Menos de 5 horas</option>
+                            <option value="5-10">5-10 horas</option>
+                            <option value="11-20">11-20 horas</option>
+                            <option value="21-40">21-40 horas</option>
+                            <option value="mais-40">Mais de 40 horas</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="improvement_areas">Quais áreas você gostaria de melhorar prioritariamente?* (Selecione até 3)</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="area_atendimento" name="improvement_areas" value="atendimento">
+                                <label for="area_atendimento">Atendimento ao Cliente</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="area_vendas" name="improvement_areas" value="vendas">
+                                <label for="area_vendas">Vendas e Comercial</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="area_marketing" name="improvement_areas" value="marketing">
+                                <label for="area_marketing">Marketing</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="area_operacional" name="improvement_areas" value="operacional">
+                                <label for="area_operacional">Operacional</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="area_financeiro" name="improvement_areas" value="financeiro">
+                                <label for="area_financeiro">Financeiro</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="area_rh" name="improvement_areas" value="rh">
+                                <label for="area_rh">Recursos Humanos</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="area_compras" name="improvement_areas" value="compras">
+                                <label for="area_compras">Compras/Suprimentos</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="area_logistica" name="improvement_areas" value="logistica">
+                                <label for="area_logistica">Logística</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="process_description">Descreva com detalhes o principal processo que você gostaria de automatizar*</label>
+                        <textarea id="process_description" name="process_description" rows="5" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="automation_goals">Quais resultados você espera alcançar com a automação?* (Selecione todos aplicáveis)</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="goal_tempo" name="automation_goals" value="reducao_tempo">
+                                <label for="goal_tempo">Redução de tempo em tarefas operacionais</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="goal_custo" name="automation_goals" value="reducao_custo">
+                                <label for="goal_custo">Redução de custos operacionais</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="goal_erros" name="automation_goals" value="reducao_erros">
+                                <label for="goal_erros">Diminuição de erros humanos</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="goal_atendimento" name="automation_goals" value="melhor_atendimento">
+                                <label for="goal_atendimento">Melhoria no atendimento ao cliente</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="goal_vendas" name="automation_goals" value="aumento_vendas">
+                                <label for="goal_vendas">Aumento nas vendas</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="goal_dados" name="automation_goals" value="melhor_dados">
+                                <label for="goal_dados">Melhoria na análise de dados</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="goal_escalabilidade" name="automation_goals" value="escalabilidade">
+                                <label for="goal_escalabilidade">Possibilidade de escalar o negócio</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="goal_outro" name="automation_goals" value="outro">
+                                <label for="goal_outro">Outro</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group" id="other_goal_container" style="display: none;">
+                        <label for="other_goal">Especifique o resultado esperado</label>
+                        <input type="text" id="other_goal" name="other_goal">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="budget">Qual o investimento aproximado que você considera para implementar soluções de automação?</label>
+                        <select id="budget" name="budget">
+                            <option value="">Prefiro não informar</option>
+                            <option value="ate-5k">Até R$ 5 mil</option>
+                            <option value="5k-10k">R$ 5 mil a R$ 10 mil</option>
+                            <option value="10k-30k">R$ 10 mil a R$ 30 mil</option>
+                            <option value="30k-50k">R$ 30 mil a R$ 50 mil</option>
+                            <option value="acima-50k">Acima de R$ 50 mil</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="timeline">Qual seria o prazo ideal para implementação da solução?</label>
+                        <select id="timeline" name="timeline">
+                            <option value="">Selecione uma opção</option>
+                            <option value="imediato">O quanto antes possível</option>
+                            <option value="1-3-meses">Nos próximos 1-3 meses</option>
+                            <option value="3-6-meses">Nos próximos 3-6 meses</option>
+                            <option value="6-12-meses">Nos próximos 6-12 meses</option>
+                            <option value="acima-12-meses">Mais de 12 meses</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="additional_info">Informações adicionais relevantes para o diagnóstico</label>
+                        <textarea id="additional_info" name="additional_info" rows="4"></textarea>
+                    </div>
+                    
+                    <div class="form-check">
+                        <input type="checkbox" id="privacy" name="privacy" required>
+                        <label for="privacy">Concordo com a <a href="#" onclick="openModal('privacy')">Política de Privacidade</a>*</label>
+                    </div>
+                    
+                    <button type="submit" class="cta-button">Enviar e Solicitar Diagnóstico</button>
+                    <p class="form-response" id="formResponse"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="main-footer" role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//logo_vertical.png" alt="LARTECH AUTOMAÇÕES Logo" class="footer-logo">
+                <p>Transformando ideias em automações inteligentes</p>
+            </div>
+            <div class="footer-info">
+                <h4>Contato</h4>
+                <p>CNPJ: 59.632.001/0001-00</p>
+                <p>Email: <a href="mailto:Lucas.ribeiro@lartechautomation.com">Lucas.ribeiro@lartechautomation.com</a></p>
+            </div>
+            <div class="footer-social">
+                <h4>Redes Sociais</h4>
+                <div class="social-icons">
+                    <a href="#" class="social-icon" aria-label="Facebook">
+                        <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//facebook.png" alt="Facebook">
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Instagram">
+                        <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//instagram.png" alt="Instagram">
+                    </a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Links Úteis</h4>
+                <a href="#" onclick="openModal('terms')">Termos de Uso</a>
+                <a href="#" onclick="openModal('privacy')">Política de Privacidade</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="copyright">&copy; 2024 LARTECH AUTOMAÇÕES. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <div id="policyModal" class="modal" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="termsContent" class="modal-section">
+                <h2>Termos de Uso</h2>
+                <div class="policy-text">
+                    <h3>1. Aceitação dos Termos</h3>
+                    <p>Ao acessar e usar este site, você aceita e concorda em cumprir estes termos e condições de uso.</p>
+
+                    <h3>2. Uso do Serviço</h3>
+                    <p>O usuário se compromete a utilizar os serviços de acordo com a lei, a moral, os bons costumes e a ordem pública.</p>
+
+                    <h3>3. Propriedade Intelectual</h3>
+                    <p>Todo o conteúdo deste site é de propriedade da LARTECH AUTOMAÇÕES.</p>
+
+                    <h3>4. Limitação de Responsabilidade</h3>
+                    <p>A LARTECH AUTOMAÇÕES não se responsabiliza por danos indiretos decorrentes do uso do site.</p>
+                </div>
+            </div>
+            <div id="privacyContent" class="modal-section">
+                <h2>Política de Privacidade</h2>
+                <div class="policy-text">
+                    <h3>1. Coleta de Dados</h3>
+                    <p>Coletamos informações necessárias para fornecer nossos serviços, incluindo nome, e-mail e telefone.</p>
+
+                    <h3>2. Uso das Informações</h3>
+                    <p>As informações coletadas são utilizadas para melhorar nossos serviços e comunicação com clientes.</p>
+
+                    <h3>3. Proteção de Dados</h3>
+                    <p>Implementamos medidas de segurança para proteger suas informações pessoais.</p>
+
+                    <h3>4. Cookies</h3>
+                    <p>Utilizamos cookies para melhorar a experiência do usuário em nosso site.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="https://wa.me/5511999027653" 
+       class="whatsapp-float" 
+       aria-label="Contato via WhatsApp"
+       role="button">
+        <img src="https://ynembjipjkdycjacjudz.supabase.co/storage/v1/object/public/site//whatsapp.png"
+            alt="Ícone do WhatsApp"
+            loading="lazy">
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="script.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Forçar a visibilidade do formulário
+            const formSection = document.querySelector('.form-section');
+            if (formSection) {
+                formSection.classList.add('visible');
+                formSection.style.opacity = '1';
+                formSection.style.transform = 'translateY(0)';
+                formSection.style.display = 'block';
+                formSection.style.visibility = 'visible';
+                console.log('Formulário inicializado e configurado como visível');
+            } else {
+                console.error('Seção do formulário não encontrada');
+            }
+
+            const contactForm = document.getElementById('contactForm');
+            const formResponse = document.getElementById('formResponse');
+            
+            // Mostrar campos "outros" quando opção correspondente for selecionada
+            const businessSelect = document.getElementById('business');
+            const otherBusinessContainer = document.getElementById('other_business_container');
+            
+            if (businessSelect && otherBusinessContainer) {
+                businessSelect.addEventListener('change', function() {
+                    otherBusinessContainer.style.display = this.value === 'outro' ? 'block' : 'none';
+                });
+            }
+            
+            // Para ferramentas - checkbox "outros"
+            const toolOutros = document.getElementById('tool_outros');
+            const otherToolsContainer = document.getElementById('other_tools_container');
+            
+            if (toolOutros && otherToolsContainer) {
+                toolOutros.addEventListener('change', function() {
+                    otherToolsContainer.style.display = this.checked ? 'block' : 'none';
+                });
+            }
+            
+            // Para pontos de dor - checkbox "outro"
+            const painOutro = document.getElementById('pain_outro');
+            const otherPainContainer = document.getElementById('other_pain_container');
+            
+            if (painOutro && otherPainContainer) {
+                painOutro.addEventListener('change', function() {
+                    otherPainContainer.style.display = this.checked ? 'block' : 'none';
+                });
+            }
+            
+            // Para objetivos - checkbox "outro"
+            const goalOutro = document.getElementById('goal_outro');
+            const otherGoalContainer = document.getElementById('other_goal_container');
+            
+            if (goalOutro && otherGoalContainer) {
+                goalOutro.addEventListener('change', function() {
+                    otherGoalContainer.style.display = this.checked ? 'block' : 'none';
+                });
+            }
+            
+            // Limitar seleção de checkboxes para "pain_points" (máximo 3)
+            const painPointsCheckboxes = document.querySelectorAll('input[name="pain_points"]');
+            
+            if (painPointsCheckboxes.length > 0) {
+                painPointsCheckboxes.forEach(checkbox => {
+                    checkbox.addEventListener('change', function() {
+                        const checked = document.querySelectorAll('input[name="pain_points"]:checked');
+                        if (checked.length > 3) {
+                            this.checked = false;
+                            alert('Selecione no máximo 3 opções');
+                        }
+                    });
+                });
+            }
+            
+            // Limitar seleção de checkboxes para "improvement_areas" (máximo 3)
+            const improvementAreasCheckboxes = document.querySelectorAll('input[name="improvement_areas"]');
+            
+            if (improvementAreasCheckboxes.length > 0) {
+                improvementAreasCheckboxes.forEach(checkbox => {
+                    checkbox.addEventListener('change', function() {
+                        const checked = document.querySelectorAll('input[name="improvement_areas"]:checked');
+                        if (checked.length > 3) {
+                            this.checked = false;
+                            alert('Selecione no máximo 3 opções');
+                        }
+                    });
+                });
+            }
+            
+            // Processar envio do formulário
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Validação personalizada
+                    const painPointsChecked = document.querySelectorAll('input[name="pain_points"]:checked').length;
+                    const improvementAreasChecked = document.querySelectorAll('input[name="improvement_areas"]:checked').length;
+                    const currentToolsChecked = document.querySelectorAll('input[name="current_tools"]:checked').length;
+                    const automationGoalsChecked = document.querySelectorAll('input[name="automation_goals"]:checked').length;
+                    
+                    if (painPointsChecked === 0 || improvementAreasChecked === 0 || currentToolsChecked === 0 || automationGoalsChecked === 0) {
+                        formResponse.textContent = 'Por favor, selecione pelo menos uma opção em cada grupo de checkbox.';
+                        formResponse.style.color = '#f44336';
+                        return;
+                    }
+                    
+                    // Coletar todos os dados do formulário
+                    const formData = new FormData(contactForm);
+                    const formDataObject = {};
+                    
+                    // Converter campos de checkbox em arrays
+                    const checkboxFields = ['current_tools', 'pain_points', 'improvement_areas', 'automation_goals'];
+                    checkboxFields.forEach(field => {
+                        formDataObject[field] = [];
+                    });
+                    
+                    for (let [key, value] of formData.entries()) {
+                        if (checkboxFields.includes(key)) {
+                            formDataObject[key].push(value);
+                        } else {
+                            formDataObject[key] = value;
+                        }
+                    }
+                    
+                    // Indicar que o envio está em andamento
+                    formResponse.textContent = 'Enviando sua solicitação...';
+                    formResponse.style.color = 'var(--accent-blue)';
+                    
+                    // Endpoint do n8n
+                    const endpoint = 'https://n8n.lartechautomation.com/webhook/formulario_lartech';
+                    
+                    // Preparar dados para envio correto de checkboxes
+                    const checkboxFields = ['current_tools', 'pain_points', 'improvement_areas', 'automation_goals'];
+                    checkboxFields.forEach(field => {
+                        if (formDataObject[field] && Array.isArray(formDataObject[field])) {
+                            // Mantém o array como está
+                        } else if (formDataObject[field]) {
+                            // Converte valor único em array
+                            formDataObject[field] = [formDataObject[field]];
+                        } else {
+                            // Garante que existe um array vazio se não houver valores
+                            formDataObject[field] = [];
+                        }
+                    });
+                    
+                    // Enviar dados para o n8n
+                    fetch(endpoint, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify(formDataObject)
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            return response.json();
+                        }
+                        throw new Error('Erro ao enviar formulário');
+                    })
+                    .then(data => {
+                        // Mostrar mensagem de sucesso
+                        formResponse.innerHTML = `
+                            <div class="success-message">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#4CAF50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg>
+                                <h3>Diagnóstico Solicitado com Sucesso!</h3>
+                                <p>Recebemos seu formulário e entraremos em contato em breve para enviar seu diagnóstico personalizado de automação.</p>
+                                <p>Redirecionando para a página inicial em <span id="countdown">5</span> segundos...</p>
+                            </div>
+                        `;
+                        
+                        // Estilizar a mensagem de sucesso
+                        document.querySelector('.success-message').style.textAlign = 'center';
+                        document.querySelector('.success-message').style.padding = '2rem';
+                        document.querySelector('.success-message').style.backgroundColor = 'rgba(76, 175, 80, 0.1)';
+                        document.querySelector('.success-message').style.borderRadius = '10px';
+                        document.querySelector('.success-message').style.border = '1px solid rgba(76, 175, 80, 0.3)';
+                        
+                        // Limpar formulário
+                        contactForm.reset();
+                        
+                        // Contador regressivo
+                        let count = 5;
+                        const countdownElement = document.getElementById('countdown');
+                        const countdown = setInterval(() => {
+                            count--;
+                            countdownElement.textContent = count;
+                            if (count <= 0) {
+                                clearInterval(countdown);
+                                window.location.href = 'index.html';
+                            }
+                        }, 1000);
+                    })
+                    .catch(error => {
+                        console.error('Erro:', error);
+                        formResponse.textContent = 'Ocorreu um erro ao enviar sua solicitação. Por favor, tente novamente ou entre em contato via WhatsApp.';
+                        formResponse.style.color = '#f44336';
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
